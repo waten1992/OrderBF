@@ -115,4 +115,30 @@ Result Helper Functions
 	$query = $this->db->query('SELECT * FROM my_table');
 
 	echo $query->num_rows();
+
+2-$query->num_fields()
+
+	//The number of FIELDS (columns) returned by the query. Make sure to call the function using your query result object:
+
+	$query = $this->db->query('SELECT * FROM my_table');
+	echo $query->num_fields();
+
+3-$query->free_result()
+
+	//It frees the memory associated with the result and deletes the result resource ID. 
+	//Normally PHP frees its memory automatically at the end of script execution. However, if you are running a lot of queries in a particular script you might want to free the result after each query result has been generated in order to cut down on memory consumptions. Example:
+
+	$query = $this->db->query('SELECT title FROM my_table');
+	foreach ($query->result() as $row)
+	{
+	   echo $row->title;
+	}
+	$query->free_result(); // The $query result object will no longer be available
+
+	$query2 = $this->db->query('SELECT name FROM some_table');
+
+	$row = $query2->row();
+	echo $row->name;
+	$query2->free_result(); // The $query2 result object will no longer be available
+	
 	?>
