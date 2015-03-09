@@ -126,7 +126,9 @@ Result Helper Functions
 3-$query->free_result()
 
 	//It frees the memory associated with the result and deletes the result resource ID. 
-	//Normally PHP frees its memory automatically at the end of script execution. However, if you are running a lot of queries in a particular script you might want to free the result after each query result has been generated in order to cut down on memory consumptions. Example:
+	//Normally PHP frees its memory automatically at the end of script execution. However, 
+	//if you are running a lot of queries in a particular script you might want to free the result
+	// after each query result has been generated in order to cut down on memory consumptions. Example:
 
 	$query = $this->db->query('SELECT title FROM my_table');
 	foreach ($query->result() as $row)

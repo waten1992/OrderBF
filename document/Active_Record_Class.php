@@ -1,3 +1,4 @@
+<?php
 CI------Active Record 类
 --------------------------------------
 1-$this->db->get();
@@ -8,3 +9,7 @@ CI------Active Record 类
 
 2-$this->db->get_where();
 	$query = $this->db->get_where('mytable', array('id' => $id), $limit, $offset);
+
+
+
+?>
