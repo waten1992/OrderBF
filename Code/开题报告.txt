@@ -57,5 +57,19 @@ Computer Systems：A Programmer's Perspective(Edition 2) Randal E. Bryant / Davi
 7-整理资料完成论文(16周)
 
 主要参考文献:
-
+[1]http://www.codeigniter.com/user_guide/ [OL]
+[2]http://dev.mysql.com/doc/ [OL]
+[3]http://nginx.org/en/docs/ [OL]
+[4]Randal E. Bryant / David R. O'Hallaron. Computer Systems：A Programmer's Perspective(Edition 2)[M] Addison-Wesley; 2 edition (February 14, 2010)
+[5] W.Richard Stevens / Stephen A.Rago. Advanced Programming in the UNIX Environment, Third Edition[M] Addison-Wesley Professional (May 24, 2013)
+[6]Abraham Silberschatz，Henry F.Korth, S.Sudarshan Database System Concepts. McGraw-Hill Science/Engineering/Math; 6 edition (January 27, 2010)
+[7] 鸟哥. 鸟哥的Linux私房菜：服务器架设篇(第3版)[M] 机械工业出版社 2012
+[8] 鸟哥. 鸟哥的Linux私房菜:基础学习篇 (第三版)[M] 人民邮电出版社 2010
+[9] 陶辉. 深入理解Nginx：模块开发与架构解析 [M] 机械工业出版社 2013
+[10]邹欣. 构建之法:现代软件工程[M] 人民邮电出版社 2014
+[11]徐涛. 深入理解Bootstrap[M]  机械工业出版社 2014
+[12]Luke Welling , Laura Thomson . PHP and MySQL Web Development (4th Edition)[M]  Addison-Wesley Professional; 4 edition (October 11, 2008)
+[13] [美] Glenford J.Myers，[美] Tom Badgett ，[美] Corey Sandler 著； 张晓明，黄琳 译 .软件测试的艺术（原书第3版）[M]  机械工业出版社 2012
+[14] Jeffrey E.F.Friedl 著 余晟 译. 精通正则表达式（第3版）[M] 电子工业出版社 2012 
+[15] 陈莉君，康华 著. Linux 操作系统原理与应用（第2版）[M] 清华大学出版社 2011
 
