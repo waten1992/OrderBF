@@ -52,3 +52,14 @@ foreach 循环
 	$_COOKIE
 	$_SESSION
 	
+
+--------------------------
+$_SERVER["PHP_SELF"]
+	$_SERVER["PHP_SELF"] 是一种超全局变量，它返回当前执行脚本的文件名
+
+htmlspecialchars()
+ 	htmlspecialchars() 函数把特殊字符转换为 HTML 实体。这意味着 < 和 > 之类的 HTML 字符会被替换为 &lt; 和 &gt; 。这样可防止攻击者通过在表单中注入 HTML 或 JavaScript 代码（跨站点脚本攻击）对代码进行利用
+
+include 和 require 语句
+	require 会生成致命错误（E_COMPILE_ERROR）并停止脚本
+	include 只生成警告（E_WARNING），并且脚本会继续
