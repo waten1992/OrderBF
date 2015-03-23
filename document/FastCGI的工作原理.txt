@@ -1,0 +1,24 @@
+CGI:公共网关接口”(Common Gateway Interface)
+	CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量;
+	每次都是启动fork-and-execute 模式，
+
+FastCGI像是一个常驻(long-live)型的CGI，它可以一直执行着，只要激活后，不会每次都要花费时间去fork一次(这是CGI最为人诟病的fork-and-execute 模式)。它还支持分布式的运算, 即 FastCGI 程序可以在网站服务器以外的主机上执行并且接受来自其它网站服务器来的请求。
+
+FastCGI的工作原理
+
+	1-Web Server 启动时载入fastcgi管理器；
+	2-fastcgi自身初始化，启动多个CGI解释进程，等待Web Server 的连接
+	3-当请求到达WEB Server 时候,Fastcgi 进程管理器选择连接到CGI解释器；(web server 把CGI环境和标准输入发送到fastcgi子进程php-cgi)
+	4-fastcgi处理完成后，将标准输出给web server ，当fastcgi子进程关闭连接，请求便完成了；等待下一个请求；
+
+PHP-FPM优点：
+	1-支持平滑停止/启动的高级进程管理功能；
+	2-可以工作于不同的 uid/gid/chroot 环境下，并监听不同的端口和使用不同的 php.ini 配置文件（可取代 safe_mode 的设置）；
+	3-stdout 和 stderr 日志记录;
+	4-在发生意外情况的时候能够重新启动并缓存被破坏的 opcode;
+	5-文件上传优化支持;
+	6-"慢日志" - 记录脚本（不仅记录文件名，还记录 PHP backtrace 信息，可以使用Ptrace或者类似工具读取和分析远程进程的运行数据）运行所导致的异常缓慢;
+	7-fastcgi_finish_request() - 特殊功能：用于在请求完成和刷新数据后，继续在后台执行耗时的工作（录入视频转换、统计处理等）；
+	8-动态／静态子进程产生；
+	9-基本 SAPI 运行状态信息（类似Apache的 mod_status）；
+	10-基于 php.ini 的配置文件。
