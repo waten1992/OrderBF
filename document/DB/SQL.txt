@@ -1,0 +1,49 @@
+SQL
+
+-----
+基本类型：
+ 	char(n) : 固定的长度字符串，若有多余的则用空格填满；
+ 	varchar(n): 可变长度的字符串，不会用多余的空格填；
+ 		建议使用varchar
+
+基本模式：
+	create table users
+	(
+		user_id		varchar(11),
+		passwd		varchar(20),
+		address		varchar(200),
+		primary key (user_id)	
+	);
+	create table orders // TINYINT(1)  等价 bool , 0 == false , 非0 即为true
+	(
+		order_id	varchar(32),
+		user_id		varchar(11),
+		item_id		varchar(6),
+		time		date(),
+		amount		float(5,2),
+		pay_pattern	TINYINT(1),
+		status		varchar(4),
+		primary key (order_id),
+		foreign key(user_id) references users,
+		foreign key(item_id) references items
+	);
+	create table items
+	(
+		item_id 	varchar(8),
+		item_name	varchar(20) not null,
+		price		numeric(4,1),
+		quantity	int(10),
+		pd_explain  varchar(20),
+		content		LONGTEXT,
+		primary key (item_id)
+	);
+
+insert into user 
+		('15975379150' , 'waten1992' ,'广大B15');
+delete from table --删除所有的元组
+drop from table ---不仅仅删除所有元组且删除模式
+alter table add attribute_name attribute_domain
+alter 增加已有关系属性
+
+select distinct item_id from orders ; //distinct 去除重复 
+
