@@ -1,0 +1,10 @@
+路由设置：
+	通配符(wildcards) ：
+		$route['product/(:num)'] = "catalog/product_lookup"; //product/(:num) 重定向catalog/product_lookup
+		:num 将匹配一个只包含有数字的segment(段).
+		:any 将匹配任何字符(可以是多个segment段).可以匹配多个值，如：
+			$route['product/(:any)'] = "catalog/product_lookup/$1/$2/$3/$4/$5";        //将整条url上的每一个参数全部传递给catalog控制器下的 product_lookup方法。
+	正则表达式(Regular Expressions)：
+		$route['products/([a-z]+)/(\d+)'] = "$1/id_$2";
+			类似于 products/shirts/123 的URI 将换成调用 shirts 控制器类的 id_123 方法.
+	注意: 路由将会按照定义的顺序来运行.高层的路由总是优先于低层的路由.
