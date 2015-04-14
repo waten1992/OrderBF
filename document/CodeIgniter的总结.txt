@@ -1,0 +1,7 @@
+CodeIgniter 的总结：
+	1-纯MVC -C是中心，所有的东西都要经过它，犹如CPU一样
+		使用类库需要在控制器中申明：$this->load->library('class name');
+		使用辅助函数也需要：        $this->load->helper('url');
+
+	2-V 仅仅是用来做展示用的，低耦合
+	3-
