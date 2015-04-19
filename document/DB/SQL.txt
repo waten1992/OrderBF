@@ -7,36 +7,45 @@ SQL
  		建议使用varchar
 
 基本模式：
-	create table users
-	(
-		user_id		varchar(11),
-		passwd		varchar(20),
-		address		varchar(200),
-		primary key (user_id)	
-	);
-	create table orders // TINYINT(1)  等价 bool , 0 == false , 非0 即为true
-	(
-		order_id	varchar(32),
-		user_id		varchar(11),
-		item_id		varchar(6),
-		time		date(),
-		amount		float(5,2),
-		pay_pattern	TINYINT(1),
-		status		varchar(4),
-		primary key (order_id),
-		foreign key(user_id) references users,
-		foreign key(item_id) references items
-	);
-	create table items
-	(
-		item_id 	varchar(8),
-		item_name	varchar(20) not null,
-		price		numeric(4,1),
-		quantity	int(10),
-		pd_explain  varchar(20),
-		content		LONGTEXT,
-		primary key (item_id)
-	);
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` varchar(11) NOT NULL DEFAULT '',
+  `passwd` varchar(32) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `createtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `order_id` varchar(32) NOT NULL DEFAULT '',
+  `user_id` varchar(11) DEFAULT NULL,
+  `item_id` varchar(8) DEFAULT NULL,
+  `time` date DEFAULT NULL,
+  `amount` float(5,2) DEFAULT NULL,
+  `pay_pattern` tinyint(1) DEFAULT NULL,
+  `status` varchar(4) DEFAULT NULL,
+  PRIMARY KEY (`order_id`),
+  UNIQUE KEY `order_id_2` (`order_id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  KEY `order_id` (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `items` (
+  `item_id` varchar(8) NOT NULL,
+  `item_name` varchar(20) NOT NULL,
+  `price` decimal(4,1) NOT NULL,
+  `quantity` int(10) DEFAULT '1',
+  `pd_explain` varchar(20) DEFAULT NULL,
+  `content` longtext,
+  PRIMARY KEY (`item_id`),
+  UNIQUE KEY `item_id` (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `items`
+--
+
+INSERT INTO `items` (`item_id`, `item_name`, `price`, `quantity`, `pd_explain`, `content`) VALUES
+('1', 'soybean_milk', '2.0', 1, '绿豆豆浆', '好喝的、优质的豆浆');
 
 insert into user 
 		('15975379150' , 'waten1992' ,'广大B15');
