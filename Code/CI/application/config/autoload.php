@@ -52,8 +52,8 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'session');
-
+$autoload['libraries'] = array('database', 'session','form_validation','encrypt','cart');
+//载入db ,session , 表格验证， 加密，购物车
 
 /*
 | -------------------------------------------------------------------
@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database', 'session');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url');
+$autoload['helper'] = array('form', 'url', 'html', 'security'); //载入表格、URL、HTML、安全类表格
 
 
 /*
@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array();
+$autoload['model'] = array('User_model'); //载入users表
 
 
 /* End of file autoload.php */
