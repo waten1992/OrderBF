@@ -38,6 +38,9 @@
 |
 */
 $route['start'] = 'start/index';
+$route['start/register'] = 'start/register';
+$route['start/login'] = 'start/login';
+
 $route['default_controller'] = 'start';
 
 $route['404_override'] = 'errors/page_missing';

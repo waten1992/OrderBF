@@ -8,7 +8,7 @@ class Start extends CI_Controller {
 
     function register() {
         if ($this->form_validation->run('signup') == FALSE) { //通不过验证就提示重新注册
-            $this->load->view('myform');
+            $this->load->view('log/register_page');
         } else { //插入到数据库中
             $post_data = array(//获取数据
                 'user_id' => $this->input->post('user_id'),
