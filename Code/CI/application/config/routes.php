@@ -37,9 +37,10 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-$route['default_controller'] = 'welcome';
-$route['(:any)'] = 'pages/view/$1';
-$route['404_override'] = '';
+$route['start'] = 'start/index';
+$route['default_controller'] = 'start';
+
+$route['404_override'] = 'errors/page_missing';
 
 
 
