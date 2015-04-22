@@ -14,6 +14,7 @@
 
     </style>
     <body>
+
         <ul>
             <li><a href = "http://localhost/index.php/start/index">主页</a></li>
             <li><a href = "http://localhost/index.php/start/contact">联系方式</a></li>
@@ -22,26 +23,51 @@
             <li><a href = "http://localhost/index.php/start/login">登录</a></li>
         </ul>
         <h2>Welcome to Orderbf!</h2>
+      
+      
+      
         <div>
             <td style="padding-left: 50px">
-            <table>
-                <tr>
-                    <td>管理员姓名：</td>
-                    <td><input type="text" name="username" /></td>
-                </tr>
-                <tr>
-                    <td>管理员密码：</td>
-                    <td><input type="password" name="password" /></td>
-                </tr>
-                <tr>
-                    <td>验证码：</td>
-                    <td><input type="text" name="captcha" class="capital" /></td>
-                </tr>
-            <tr>
-            
-            </div>
+                <form name="input" action="http://localhost/index.php/start/register" method="post">
+                <table>
+                    <tr>
+                        <?php echo form_error('user_id'); ?>
+                        <td>手机：</td>
+                        <td><input type="text" name="user_id" value="<?php echo set_value('user_id'); ?>" /></td>
+                    </tr>
+                    
+                    <tr>
+                         <?php echo form_error('passwd'); ?>
+                        <td>密码：</td>
+                        <td><input type="password" name="passwd"  value="<?php echo set_value('passwd'); ?>" /></td>
+                    </tr>
+                    
+                    <tr>
+                         <?php echo form_error('passconf');  ?>
+                        <td>密码确认：</td>
+                        <td><input type="password" name="passconf" value="<?php echo set_value('passconf'); ?>" /></td>
+                    </tr>
+                    
+                    <tr>
+                        <?php echo form_error('email'); ?> 
+                        <td>邮箱：</td>
+                        <td><input type="email" name="email" value="<?php echo set_value('email'); ?>" /></td>
+                    </tr>
+                    
+                     <tr>
+                        <?php echo form_error('address'); ?> 
+                        <td>地址：</td>
+                        <td><input type="text" name="address" value="<?php echo set_value('address'); ?>" /></td>
+                    </tr>
+                    
+                    </table>
+                    <div><input type="submit" value='submit' /></div>
+                   </form>
+                </td>
+                                    
+        </div>
+        
 
-
-    </body>
-</html>
+                        </body>
+                        </html>
 
