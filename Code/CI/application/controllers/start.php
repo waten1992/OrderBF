@@ -5,7 +5,6 @@ class Start extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->db->trans_strict(FALSE); //禁用 严格的数据库事务
-        
     }
 
     function index() {
@@ -27,14 +26,14 @@ class Start extends CI_Controller {
             $this->db->trans_start(); //打开事务
             $this->db->insert('users', $post_data); //插入数据库
             $this->db->trans_complete(); //关闭事务
-            
-             $newdata = array( 
+
+            $newdata = array(
                 'username' => $this->input->post('user_id'), //添加用户名到session中
                 'logged_in' => TRUE   //标记为已经登录了
             );
             $this->session->set_userdata($newdata); //把用手机号码和登录状态添加到session中去
 
-      
+
 
             $this->load->view('home'); //默认返回主页
         }
@@ -49,35 +48,63 @@ class Start extends CI_Controller {
             return TRUE;
         }
     }
-    function login()
-    {
-       /* //生成表格 
-          $query = $this->db->query("SELECT * FROM users");
-          echo $this->table->generate($query); 
-        */       
 
-        $this->load->view("log/login"); 
+    function login() {
+        /* //生成表格 
+          $query = $this->db->query("SELECT * FROM users");
+          echo $this->table->generate($query);
+         */
+        if ($this->session->userdata('logged_in')) {
+            //说明已经登录了；
+            $this->load->view('log/home_logout'); //转到具有logout的主页
+        } else {
+            $iphone = $this->input->post('user_id');
+            $pwd = $this->input->post('passwd');
+
+            $pwd = do_hash($pwd, 'md5'); //MD5 处理
+
+
+            $query = $this->db->get_where('users', array('user_id' => $iphone, 'passwd' => $pwd));
+            //相当于 select * from users where user_id = $iphone and passwd= $pwd ;
+            /* 对session的测试
+              $arr_session = $this->session->all_userdata();
+              foreach ($arr_session as $key => $value) {
+              echo $key . "=>" . $value;
+              echo br();
+              }
+             */
+            if ($this->form_validation->run('sign_in') == FALSE || $query->num_rows() < 1) {
+                $this->load->view('log/login'); //继续提升登录
+            } else {
+                $newdata = array(
+                    'username' => $iphone, //添加用户名到session中
+                    'logged_in' => TRUE   //标记为已经登录了
+                );
+                $this->session->set_userdata($newdata); //加入session 中
+
+                $this->load->view('log/home_logout'); //转到具有logout的主页
+            }
+        }
     }
-    function forget()
-    {
+
+    function forget() {
         $this->load->view('log/forget');
     }
-    function handle_forget()
-    {
-      
+
+    function handle_forget() {
+
         $iphone = $this->input->post('user_id');
         $email = $this->input->post('email');
 
         $query = $this->db->get_where('users', array('user_id' => $iphone, 'email' => $email));
         //相当于 select * from users where user_id = $iphone and email= $email ;  
         if ($this->form_validation->run('forget_verify') == FALSE || $query->num_rows() < 1) {
-             $this->load->view('log/forget_error'); //提示重新填写 
+            $this->load->view('log/forget_error'); //提示重新填写 
         } else {
             //发送邮件函数，等待写
-           
-           $this->load->view('log/handle_forget'); //提示已经发送，请查收
+
+            $this->load->view('log/handle_forget'); //提示已经发送，请查收
         }
-        
-        
     }
+
 }
