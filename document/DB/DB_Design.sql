@@ -25,8 +25,8 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` char(11) NOT NULL,
   `passwd` varchar(32) NOT NULL,
-  `address` varchar(200) NOT NULL,
   `email` varchar(20) NOT NULL,
+  `address` varchar(200) NOT NULL,
   `createtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -35,8 +35,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- 转存表中的数据 `users`
 --
 
-INSERT INTO `users` (`user_id`, `passwd`, `address`, `email`, `createtime`) VALUES
-('15975379150', 'waten1992', '广大B15', 'waten1992@gmail.com', '2015-04-21 12:15:22');
+INSERT INTO `users` (`user_id`, `passwd`, `email`,`address`) VALUES
+('15975379150', 'waten1992', 'waten1992@gmail.com','广大B15');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

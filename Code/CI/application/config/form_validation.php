@@ -3,7 +3,7 @@ $config = array(
                  'signup' => array(
                                     array(
                                             'field' => 'user_id',
-                                            'label' => '手机号码',
+                                            'label' => '手机',
                                             'rules' => 'callback_user_id_check|numeric|trim|required|min_length[10]|max_length[12]|xss_clean|is_unique[users.user_id]'
                                          ),
                                     array(
@@ -14,6 +14,11 @@ $config = array(
                                     array(
                                             'field' => 'passconf',
                                             'label' => '密码确认',
+                                            'rules' => 'trim|required'
+                                         ),
+                                    array(
+                                            'field' => 'email',
+                                            'label' => '邮件',
                                             'rules' => 'trim|required'
                                          ),
                                     array(

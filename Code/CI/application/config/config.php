@@ -26,7 +26,7 @@ $config['base_url']	= 'http://localhost/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = ''; //不要
+$config['index_page'] = ''; //不要默认index.php
 
 /*
 |--------------------------------------------------------------------------
