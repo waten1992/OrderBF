@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/index.php';
+$config['base_url']	= 'http://localhost/';
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ $config['base_url']	= 'http://localhost/index.php';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = '';
+$config['index_page'] = ''; //不要
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +57,7 @@ $config['uri_protocol']	= 'AUTO';
 | http://codeigniter.com/user_guide/general/urls.html
 */
 
-$config['url_suffix'] = '.html';
+$config['url_suffix'] = '';
 
 /*
 |--------------------------------------------------------------------------
