@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'session','form_validation','encrypt','cart','email','image_lib');
+$autoload['libraries'] = array('database', 'session','form_validation','encrypt','cart','email','image_lib','table');
 //载入db ,session , 表格验证， 加密，购物车
 
 /*

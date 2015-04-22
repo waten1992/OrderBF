@@ -4,7 +4,7 @@ $config = array(
                                     array(
                                             'field' => 'user_id',
                                             'label' => '手机',
-                                            'rules' => 'callback_user_id_check|numeric|trim|required|min_length[10]|max_length[12]|xss_clean|is_unique[users.user_id]'
+                                            'rules' => 'numeric|trim|required|min_length[10]|max_length[12]|xss_clean|callback_user_id_check|is_unique[users.user_id]'
                                          ),
                                     array(
                                             'field' => 'passwd',
@@ -26,6 +26,19 @@ $config = array(
                                             'label' => '地址',
                                             'rules' => 'trim|required'
                                          )
+                                    ),
+                'sign_in' => array(
+                                    array(
+                                            'field' => 'user_id',
+                                            'label' => '手机',
+                                            'rules' => 'numeric|trim|required|min_length[10]|max_length[12]|xss_clean|callback_user_id_check|is_unique[users.user_id]'
+                                         ),
+                                    array(
+                                            'field' => 'passwd',
+                                            'label' => '密码',
+                                            'rules' => 'trim|required'
+                                         )
+                                  
                                     )
                  
                );
