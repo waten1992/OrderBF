@@ -51,9 +51,19 @@ class Start extends CI_Controller {
     }
     function login()
     {
-        echo 'haha';
+       /* //生成表格 
+          $query = $this->db->query("SELECT * FROM users");
+          echo $this->table->generate($query); 
+        */       
+
+        $this->load->view("log/login"); 
+    }
+    function forget()
+    {
+        $this->load->view('log/forget');
+    }
+    function handle_forget()
+    {
         
     }
-    
-
 }
