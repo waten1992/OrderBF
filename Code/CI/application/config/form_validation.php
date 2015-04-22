@@ -19,7 +19,7 @@ $config = array(
                                     array(
                                             'field' => 'email',
                                             'label' => '邮件',
-                                            'rules' => 'trim|required'
+                                            'rules' => 'trim|required|valid_email'
                                          ),
                                     array(
                                             'field' => 'address',
@@ -31,14 +31,25 @@ $config = array(
                                     array(
                                             'field' => 'user_id',
                                             'label' => '手机',
-                                            'rules' => 'numeric|trim|required|min_length[10]|max_length[12]|xss_clean|callback_user_id_check|is_unique[users.user_id]'
+                                            'rules' => 'numeric|trim|required|min_length[10]|max_length[12]|xss_clean|callback_user_id_check'
                                          ),
                                     array(
                                             'field' => 'passwd',
                                             'label' => '密码',
                                             'rules' => 'trim|required'
                                          )
-                                  
+                                    ),
+                 'forget_verify' => array(
+                                    array(
+                                            'field' => 'user_id',
+                                            'label' => '手机',
+                                            'rules' => 'numeric|trim|required|min_length[10]|max_length[12]|xss_clean|callback_user_id_check'
+                                         ),
+                                    array(
+                                            'field' => 'email',
+                                            'label' => '邮件',
+                                            'rules' => 'trim|required|valid_email'
+                                         )  
                                     )
                  
                );

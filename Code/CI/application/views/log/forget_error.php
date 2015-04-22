@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>成功发送</title>
+        <title>请再次填写表格</title>
     </head>
     <style>
         body {
@@ -16,6 +16,7 @@
     </style>
     <body>
         
+
         <ul>
             <li><a href = "http://localhost/index.php/start/index">主页</a></li>
             <li><a href = "http://localhost/index.php/start/contact">联系方式</a></li>
@@ -24,15 +25,30 @@
             <li><a href = "http://localhost/index.php/start/login">登录</a></li>
         </ul>
         <h2 class="pink">Welcome to Orderbf!</h2>
+        <h3 class="pink">请再次填写正确的手机号码和邮箱</h3>
       
-        <div> 
-            <?php
-                 echo " 请你登录邮箱查看！";
-                 echo br();
-                 echo $_POST['email'];
-            ?>
+      
+        <div>
+            <td style="padding-left: 50px">
+                <form name="input" action="http://localhost/index.php/start/handle_forget" method="post">
+                <table>
+                    <tr>
+                        <?php echo form_error('user_id'); ?>
+                        <td>手机：</td>
+                        <td><input type="text" name="user_id" value="<?php echo set_value('user_id'); ?>" /></td>
+                    </tr>
+                    
+                    <tr>
+                        <?php echo form_error('email'); ?> 
+                        <td>请输入邮箱：</td>
+                        <td><input type="text" name="email" value="<?php echo set_value('email'); ?>" /></td>
+                    </tr>
+                    </table>
+                    <div><input type="submit" value='submit' /></div>
+                   </form>
+                </td>                          
         </div>
         
-    </body>
+      </body>
 </html>
 

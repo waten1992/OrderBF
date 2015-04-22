@@ -64,6 +64,20 @@ class Start extends CI_Controller {
     }
     function handle_forget()
     {
+      
+        $iphone = $this->input->post('user_id');
+        $email = $this->input->post('email');
+
+        $query = $this->db->get_where('users', array('user_id' => $iphone, 'email' => $email));
+        //相当于 select * from users where user_id = $iphone and email= $email ;  
+        if ($this->form_validation->run('forget_verify') == FALSE || $query->num_rows() < 1) {
+             $this->load->view('log/forget_error'); //提示重新填写 
+        } else {
+            //发送邮件函数，等待写
+           
+           $this->load->view('log/handle_forget'); //提示已经发送，请查收
+        }
+        
         
     }
 }

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Home</title>
+        <title>忘记密码</title>
     </head>
     <style>
         body {
@@ -32,18 +32,23 @@
             <td style="padding-left: 50px">
                 <form name="input" action="http://localhost/index.php/start/handle_forget" method="post">
                 <table>
-                     <tr>
-                        <?php echo form_error('email'); ?> 
-                        <td>请输入你的邮箱：</td>
-                        <td><input type="email" name="email" value="<?php echo set_value('email'); ?>" /></td>
+                    <tr>
+                        <?php echo form_error('user_id'); ?>
+                        <td>手机：</td>
+                        <td><input type="text" name="user_id" value="<?php echo set_value('user_id'); ?>" /></td>
                     </tr>
-
+                    
+                    <tr>
+                        <?php echo form_error('email'); ?> 
+                        <td>请输入邮箱：</td>
+                        <td><input type="text" name="email" value="<?php echo set_value('email'); ?>" /></td>
+                    </tr>
                     </table>
                     <div><input type="submit" value='submit' /></div>
                    </form>
-                </td>
-                                    
+                </td>                          
         </div>
+        
       </body>
 </html>
 
