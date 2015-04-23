@@ -50,6 +50,18 @@ $config = array(
                                             'label' => '邮件',
                                             'rules' => 'trim|required|valid_email'
                                          )  
+                                    ),
+            'new_passwd_verify' => array(
+                                   array(
+                                            'field' => 'passwd',
+                                            'label' => '密码',
+                                            'rules' => 'trim|required|matches[passconf]'
+                                         ),
+                                     array(
+                                            'field' => 'passconf',
+                                            'label' => '密码确认',
+                                            'rules' => 'trim|required'
+                                         )
                                     )
                  
                );
