@@ -104,9 +104,78 @@ class Start extends CI_Controller {
             $this->load->view('log/forget_error'); //提示重新填写 
         } else {
             //发送邮件函数，等待写
+            $config['protocol'] = 'smtp';
+            $config['charset'] = 'iso-8859-1';
+
+            $config['smtp_host'] = 'smtp.163.com';
+            $config['smtp_user'] = 'waten1company@163.com';
+            $config['smtp_pass'] = 'HEWEN15116550789';
+            $this->email->initialize($config);
+
+            foreach ($query->result() as $row) {
+                $query_passwd = $row->passwd;
+            }
+            $this->email->from('waten1company@163.com', '找回密码');
+            $this->email->to($email);
+            $message_content = "hey , users , thankyou login orderbf please click me: http://localhost/index.php/start/verify_forget_passwd/$iphone/$query_passwd";
+            $this->email->subject("找回密码");
+            $this->email->message($message_content);
+
+
+            if ($this->email->send()) {
+
+                echo 'success...';
+            } else {
+                echo 'failed...';
+                $this->email->print_debugger();
+            }
 
             $this->load->view('log/handle_forget'); //提示已经发送，请查收
         }
+    }
+
+    function verify_forget_passwd() {
+        $user_id = $this->uri->segment(3);
+        $passwd = $this->uri->segment(4);
+     //   echo $user_id .  br();
+       // echo $passwd;
+        $query = $this->db->get_where('users', array('user_id' => $user_id, 'passwd' => $passwd));
+
+        if ($query->num_rows() >= 1) {
+            
+            $newdata = array(
+                    'username' => $user_id, //添加用户名到session中
+                    'logged_in' => TRUE   //标记为已经登录了
+                );
+             $this->session->set_userdata($newdata); //载入session ,在后面的handle_refill_passwd处理
+            $this->load->view("log/change_passwd");
+        } else {
+            echo "you verify password is wrong";
+        }
+    }
+
+    function handle_refill_passwd() {
+        if ($this->form_validation->run('new_passwd_verify') == FALSE) {
+            echo "fail---";//验证失败，要重新验证
+        } else {
+            //验证成功要更新数据库的密码；
+            $pwd = $this->input->post('passwd'); //获取密码
+            $pwd = do_hash($pwd, 'md5'); //MD5 处理
+            echo $pwd .  br();
+            $data = array(
+                'passwd' => $pwd
+            );
+            $this->db->trans_start(); //打开事务
+            $name =  $this->session->userdata('username');
+            $this->db->update('users', $data, "user_id = $name");
+            $this->db->trans_complete(); //关闭事务
+        }
+    }
+    
+    function yourself()
+    {
+         $name =  $this->session->userdata('username');
+         echo $name;
     }
 
 }
