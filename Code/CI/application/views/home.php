@@ -23,6 +23,9 @@
             <li><a href = "http://localhost/index.php/start/login">登录</a></li>
         </ul>
         <h2>Welcome to Orderbf!</h2>
-
+        <?PHP
+        echo mailto('me@my-site.com', 'Click Here to Contact Me',array());
+        ?>
+      
     </body>
 </html>

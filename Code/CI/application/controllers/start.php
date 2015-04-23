@@ -73,8 +73,10 @@ class Start extends CI_Controller {
               echo br();
               }
              */
-            if ($this->form_validation->run('sign_in') == FALSE || $query->num_rows() < 1) {
-                $this->load->view('log/login'); //继续提升登录
+            if ($this->form_validation->run('sign_in') == FALSE) { //
+                $this->load->view('log/login'); //没有通过最基本验证,继续登录
+            } else if ($query->num_rows() < 1) {
+                $this->load->view('log/login_error'); //没有通过数据库的验证，继续提示登录
             } else {
                 $newdata = array(
                     'username' => $iphone, //添加用户名到session中
