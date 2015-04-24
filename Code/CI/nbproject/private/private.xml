@@ -5,9 +5,9 @@
         <group>
             <file>file:/E:/GithubCode/OrderBF/Code/CI/application/views/log/register_page.php</file>
             <file>file:/E:/GithubCode/OrderBF/Code/CI/application/controllers/start.php</file>
+            <file>file:/E:/GithubCode/OrderBF/Code/CI/application/views/log/login.php</file>
+            <file>file:/E:/GithubCode/OrderBF/Code/CI/application/views/log/change_passwd.php</file>
             <file>file:/E:/GithubCode/OrderBF/Code/CI/application/config/form_validation.php</file>
-            <file>file:/E:/GithubCode/OrderBF/Code/CI/application/views/home.php</file>
-            <file>file:/E:/GithubCode/OrderBF/Code/CI/application/config/autoload.php</file>
             <file>file:/E:/GithubCode/OrderBF/Code/CI/application/config/routes.php</file>
         </group>
     </open-files>
