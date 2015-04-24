@@ -25,6 +25,17 @@
         <h2>Welcome to Orderbf!</h2>
         <?PHP
         echo mailto('me@my-site.com', 'Click Here to Contact Me',array());
+$image_properties = array(
+          'src' => 'images/about.jpg',
+          'alt' => 'Me, demonstrating how to eat 4 slices of pizza at one time',
+          'class' => 'post_images',
+          'width' => '300',
+          'height' => '300',
+          'title' => 'That was quite a night',
+          'rel' => 'lightbox',
+);
+
+echo img($image_properties);
         ?>
       
     </body>

@@ -89,6 +89,20 @@ class Start extends CI_Controller {
         }
     }
 
+    function logout() {
+        $this->cart->destroy(); //销毁购物车
+        $this->session->sess_destroy(); //销毁session
+        $this->load->view('home'); //返回主页
+    }
+
+    function about() {
+        $this->load->view('introduce/about');
+    }
+
+    function contact() {
+        $this->load->view('introduce/contact');
+    }
+
     function forget() {
         $this->load->view('log/forget');
     }
@@ -137,17 +151,17 @@ class Start extends CI_Controller {
     function verify_forget_passwd() {
         $user_id = $this->uri->segment(3);
         $passwd = $this->uri->segment(4);
-     //   echo $user_id .  br();
-       // echo $passwd;
+        //   echo $user_id .  br();
+        // echo $passwd;
         $query = $this->db->get_where('users', array('user_id' => $user_id, 'passwd' => $passwd));
 
         if ($query->num_rows() >= 1) {
-            
+
             $newdata = array(
-                    'username' => $user_id, //添加用户名到session中
-                    'logged_in' => TRUE   //标记为已经登录了
-                );
-             $this->session->set_userdata($newdata); //载入session ,在后面的handle_refill_passwd处理
+                'username' => $user_id, //添加用户名到session中
+                'logged_in' => TRUE   //标记为已经登录了
+            );
+            $this->session->set_userdata($newdata); //载入session ,在后面的handle_refill_passwd处理
             $this->load->view("log/change_passwd");
         } else {
             echo "you verify password is wrong";
@@ -156,26 +170,25 @@ class Start extends CI_Controller {
 
     function handle_refill_passwd() {
         if ($this->form_validation->run('new_passwd_verify') == FALSE) {
-            echo "fail---";//验证失败，要重新验证
+            echo "fail---"; //验证失败，要重新验证
         } else {
             //验证成功要更新数据库的密码；
             $pwd = $this->input->post('passwd'); //获取密码
             $pwd = do_hash($pwd, 'md5'); //MD5 处理
-            echo $pwd .  br();
+            echo $pwd . br();
             $data = array(
                 'passwd' => $pwd
             );
             $this->db->trans_start(); //打开事务
-            $name =  $this->session->userdata('username');
+            $name = $this->session->userdata('username');
             $this->db->update('users', $data, "user_id = $name");
             $this->db->trans_complete(); //关闭事务
         }
     }
-    
-    function yourself()
-    {
-         $name =  $this->session->userdata('username');
-         echo $name;
+
+    function yourself() {
+        $name = $this->session->userdata('username');
+        echo $name;
     }
 
 }

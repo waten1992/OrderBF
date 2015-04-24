@@ -44,7 +44,8 @@ $route['start/forget'] = 'start/forget';
 $route['start/handle_forget'] = 'start/handle_forget';
 $route['start/logout'] = 'start/logout';
 $route['start/yourself'] = 'start/yourself';
-
+$route['start/about'] = 'start/about';
+$route['start/contact'] = 'start/contact';
 $route['start/verify_forget_passwd'] = 'start/verify_forget_passwd';
 $route['default_controller'] = 'start';
 
