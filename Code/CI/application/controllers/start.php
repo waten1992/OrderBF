@@ -190,5 +190,9 @@ class Start extends CI_Controller {
         $name = $this->session->userdata('username');
         echo $name;
     }
+    function test()
+    {
+        $this->load->view('test');
+    }
 
 }
