@@ -3,18 +3,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Keywords" content="orderbf,定早餐,毕业设计,独立博客" />
-
-        <title>About  Orderbf </title>
+        <link href="http://localhost/css/style.css" rel="stylesheet">
+            <title>About  Orderbf </title>
     </head>
-    <style>
-        body {
-            width: 35em;
-            margin: 0 auto;
-            padding: 5px;
-            font-family: Tahoma, Verdana, Arial, sans-serif;
-        }
 
-    </style>
     <body>
 
         <h3>Welcome to  Orderbf </h3>

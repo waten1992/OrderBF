@@ -47,7 +47,7 @@ $route['start/yourself'] = 'start/yourself';
 $route['start/about'] = 'start/about';
 $route['start/contact'] = 'start/contact';
 $route['start/verify_forget_passwd'] = 'start/verify_forget_passwd';
-
+$route['shop_cart/add'] = 'shop_cart/add';
 $route['start/test'] = 'start/test';
 
 $route['default_controller'] = 'start';

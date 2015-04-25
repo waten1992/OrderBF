@@ -3,36 +3,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Keywords" content="orderbf,定早餐,毕业设计,独立博客" />
+        <link href="http://localhost/css/style.css" rel="stylesheet">
         <title>Home</title>
     </head>
-    <style>
-      
-        ul
-		{
-			float:left;
-			width:100%;
-			padding:0;
-			margin:0;
-			list-style-type:none;
-		}
-	a
-		{
-			float:left;
-			width:10em;
-			text-decoration:none;
-			color:rgb(70,202,162);
-			text-align:center;
-				font-size: 20px; 
-			background-color:rgb(52,55,60);
-			padding:0.2em 0.6em;
-			border-right:2px solid white;
-		}
-	a:hover {background-color:white}
-	li {display:inline}
-
-        
-        
-    </style>
     <body>
         <ul>
             <li><a href = "http://localhost/index.php/start/index">主页</a></li>
@@ -40,6 +13,7 @@
             <li><a href = "http://localhost/index.php/start/about">关于Orderbf</a></li>
             <li><a href = "http://localhost/index.php/start/register">注册</a></li>
             <li><a href = "http://localhost/index.php/start/login">登录</a></li>
+            <li><a href = "http://localhost/index.php/start/test">test</a></li>
         </ul>
         
         <h2>Welcome to Orderbf!</h2>
