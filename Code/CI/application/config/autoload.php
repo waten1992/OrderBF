@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('User_model'); //载入users表
+$autoload['model'] = array('User_model','Order_model','Item_model'); //载入users表、 orders 、items 表 
 
 
 /* End of file autoload.php */
