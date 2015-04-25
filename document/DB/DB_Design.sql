@@ -41,3 +41,29 @@ INSERT INTO `users` (`user_id`, `passwd`, `email`,`address`) VALUES
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `order_id` int(32) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(11) DEFAULT NULL,
+  `item_id` varchar(8) NOT NULL DEFAULT '',
+  `time` date DEFAULT NULL,
+  `amount` float(5,2) DEFAULT NULL,
+  `pay_pattern` tinyint(1) unsigned DEFAULT '0',
+  `status` varchar(4) DEFAULT NULL,
+  PRIMARY KEY (`order_id`,`item_id`),
+  UNIQUE KEY `order_id` (`order_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=100 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `items` (
+  `item_id` varchar(8) NOT NULL,
+  `item_name` varchar(20) NOT NULL,
+  `price` decimal(4,1) NOT NULL,
+  `quantity` int(10) unsigned DEFAULT '1',
+  `capacity` int(10) unsigned DEFAULT '1',
+  `pd_explain` varchar(20) DEFAULT NULL,
+  `content` longtext,
+  PRIMARY KEY (`item_id`),
+  UNIQUE KEY `item_id` (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
