@@ -40,7 +40,7 @@
                         <div >
                             <a href="http://localhost/index.php/shop_cart/index">  
                                 <button class="btn btn-success navbar-btn " type="button" > 购物车 
-                                    <span class="badge"> </span>
+                                    <span class="badge" > <?php echo $this->cart->total();?></span>
                                 </button>
                             </a>
                         </div>

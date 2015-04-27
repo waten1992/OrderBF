@@ -6,7 +6,7 @@
         <meta name="Keywords" content="orderbf,定早餐,毕业设计,独立博客" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-        <title>Orderbf Home</title>
+        <title>购物车</title>
 
         <!-- Bootstrap -->
         <link href="http://localhost/css/bootstrap.min.css" rel="stylesheet">
@@ -14,6 +14,7 @@
         <script src="http://localhost/js/jquery-2.1.3"></script>
         <script src="http://localhost/js/bootstrap.min.js"></script>
         <script src="http://localhost/js/carousel.js"></script>
+
     </head>
 
     <body>
@@ -28,14 +29,11 @@
                     <div class = "collapse navbar-collapse" >
                         <ul class = "nav navbar-nav"  >
                             <li class = "active"><a href ="http://localhost/index.php/start" >首页</a> </li>                          
-                            <li > <a href ="http://localhost/index.php/start/register">注册</a> </li>
+
                             <li > <a href ="http://localhost/index.php/start/about">关于orderbf</a> </li>
                             <li > <a href ="http://localhost/index.php/start/contact">联系orderbf</a> </li>
                         </ul>
-                     
-                      
                     </div>
-
                 </div>
             </nav>
         </div>
@@ -44,13 +42,13 @@
         <div>
             <?php echo form_open('index.php/start'); ?>
 
-            <table cellpadding="6" cellspacing="1" style="width:100%" border="0">
+            <table cellpadding="6" cellspacing="1" style="width:100%; margin-top: 30px; margin-left: 40px;" border="0">
 
-                <tr>
-                    <th>数量</th>
-                    <th>商品描述</th>
-                    <th style="text-align:right">价格</th>
-                    <th style="text-align:right">小计</th>
+                <tr >
+                    <th style="margin-left: 50px; "><h4>数量</h4></th>
+                <th style="margin-left: 200px;"><h4>商品描述</h4></th>
+                <th style="margin-right: 100px;"><h4>价格</h4></th>
+                <th style="margin-right: 20px;"><h4>小计</h4></th>
                 </tr>
 
                 <?php $i = 1; ?>
@@ -59,8 +57,10 @@
 
                     <?php echo form_hidden($i . '[rowid]', $items['rowid']); ?>
 
-                    <tr>
-                        <td><?php echo form_input(array('name' => $i . '[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
+                    <tr >
+                        <td >
+                            <?php echo form_input(array('name' => $i . '[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?>
+                        </td>
                         <td>
                             <?php echo $items['name']; ?>
 
@@ -69,7 +69,7 @@
                                 <p>
                                     <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
 
-                                        <strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
+                                        <strong ><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
 
                                     <?php endforeach; ?>
                                 </p>
@@ -77,39 +77,28 @@
                             <?php endif; ?>
 
                         </td>
-                        <td style="text-align:right"><?php echo $this->cart->format_number($items['price']); ?></td>
-                        <td style="text-align:right">$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
+                        <td style="margin-right: 100px;"><?php echo $this->cart->format_number($items['price']); ?></td>
+                        <td style="margin-right: 20px;"><?php echo $this->cart->format_number($items['subtotal']); ?>￥</td>
                     </tr>
 
                     <?php $i++; ?>
 
                 <?php endforeach; ?>
-
+                <br/>
                 <tr>
                     <td colspan="2"> </td>
-                    <td class="right"><strong>Total</strong></td>
-                    <td class="right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+                    <td class="margin-right: 20px;"><strong><h3>总计:</h3></strong></td>
+                    <td class="margin-right: 20px;"><h3><?php echo $this->cart->format_number($this->cart->total()); ?>￥</h3></td>
                 </tr>
-
             </table>
-
-            <p><?php echo form_submit('', 'Update your Cart'); ?></p>
-
         </div>
+
         <div style="margin-right: 20px;">
-                            <a href="http://localhost/index.php/shop_cart/settled">
-                                <button type = "button" class = " btn btn-success navbar-btn navbar-right" style="font-size: 30px;margin-right: 20px;" >去结算</button>
-                            </a>
-                        </div>
-        <div>
-         <?php
-                 $arr_session = $this->session->all_userdata();
-          var_dump( $arr_session);
-           $cart = $this->cart->contents();
-         var_dump($cart);
-         
-         ?>   
+            <a href="http://localhost/index.php/shop_cart/settled">
+                <button type = "button" class = " btn btn-success navbar-btn navbar-right" style="font-size: 30px;margin-right: 20px;" >去结算</button>
+            </a>
         </div>
+
 
 
 
