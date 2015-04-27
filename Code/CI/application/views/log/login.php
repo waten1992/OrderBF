@@ -1,56 +1,137 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
+<!DOCTYPE html>
+<html lang="zh-CN">
     <head>
+
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Keywords" content="orderbf,定早餐,毕业设计,独立博客" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
         <title>登录</title>
+
+        <!-- Bootstrap -->
+        <link href="http://localhost/css/bootstrap.min.css" rel="stylesheet">
+        <script src="http://localhost/js/jquery-2.1.3"></script>
+        <script src="http://localhost/js/bootstrap.min.js"></script>
+        <script src="http://localhost/js/carousel.js"></script>
     </head>
-    <style>
-        body {
-            width: 35em;
-            margin: 0 auto;
-            padding: 5px;
-            font-family: Tahoma, Verdana, Arial, sans-serif;
-           
+
+    <style type ="text/css">
+        .login-form {
+            position: relative;
+            padding: 24px 23px 20px;
+            background-color: #edeff1;
+            border-radius: 6px;
         }
-
+        .login-form .control-group {
+            position: relative;
+            margin-bottom: 6px;
+        }
+        .login-form .login-field {
+            font-size: 17px;
+            text-indent: 3px;
+            border-color: transparent;
+        }
+        .login-form .login-field:focus {
+            border-color: #1abc9c;
+        }
+        .login-form .login-field:focus + .login-field-icon {
+            color: #1abc9c;
+        }
+        .login-form .login-field-icon {
+            position: absolute;
+            top: 3px;
+            right: 15px;
+            font-size: 16px;
+            color: #bfc9ca;
+            -webkit-transition: all .25s;
+            transition: all .25s;
+        }
+        .login-link {
+            display: block;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #bfc9ca;
+            text-align: center;
+        }
     </style>
+
+
+
+
+
     <body>
-        
+        <div class = "myheading">
+            <nav class = "navbar navbar-inverse">
+                <div class = "container">
+                    <div class = "navbar-header">
+                        <a class = "navbar-brand" href = "http://localhost/index.php/start">
+                            <img src = "http://localhost/images/logo.gif" style = "width:75px">
+                        </a>
+                    </div>
+                    <div class = "collapse navbar-collapse" >
+                        <ul class = "nav navbar-nav"  >
+                            <li class = "active"><a href ="http://localhost/index.php/start" >首页</a> </li>                          
+                            <li > <a href ="http://localhost/index.php/start/register">注册</a> </li>
+                            <li > <a href ="http://localhost/index.php/start/about">关于orderbf</a> </li>
+                            <li > <a href ="http://localhost/index.php/start/contact">联系orderbf</a> </li>
+                        </ul>
+                        <div>
+                            <a href="http://localhost/index.php/start/login">
+                                <button type = "button" class = " btn btn-default navbar-btn navbar-right" >Sign in</button>
+                            </a>
+                        </div>
+                        <div >
+                            <a href="http://localhost/index.php/shop_cart/index">  
+                                <button class="btn btn-success navbar-btn " type="button" > 购物车 
+                                    <span class="badge" > <?php echo $this->cart->total_items(); ?></span>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
 
-        <ul>
-            <li><a href = "http://localhost/index.php/start/index">主页</a></li>
-            <li><a href = "http://localhost/index.php/start/contact">联系方式</a></li>
-            <li><a href = "http://localhost/index.php/start/about">关于Orderbf</a></li>
-            <li><a href = "http://localhost/index.php/start/register">注册</a></li>
-            <li><a href = "http://localhost/index.php/start/login">登录</a></li>
-        </ul>
-        <h2 class="pink">Welcome to Orderbf!</h2>
-      
-      
-      
-        <div>
-            <td style="padding-left: 50px">
-                <form name="input" action="http://localhost/index.php/start/login" method="post">
-                <table>
-                    <tr>
-                        <?php echo form_error('user_id'); ?>
-                        <td>手机：</td>
-                        <td><input type="text" name="user_id" value="<?php echo set_value('user_id'); ?>" /></td>
-                    </tr>
-                    
-                    <tr>
-                         <?php echo form_error('passwd'); ?>
-                        <td>密码：</td>
-                        <td><input type="password" name="passwd"  value="<?php echo set_value('passwd'); ?>" /></td>
-                    </tr>
-                    </table>
-                    <div><input type="submit" value='submit' /></div>
-                   </form>
-                </td>
-                                    
+                </div>
+            </nav>
         </div>
-        <a href = "http://localhost/index.php/start/forget">忘记密码</a>
 
-                        </body>
-                        </html>
+        <div class = "container">
+            <div class="jumbotron" style="text-align: center; "> 
+                <h1>Welcome to Orderbf</h1>
+                <p style="font-size: 30px; color: green; text-align: center; "> Orderbf 专注为您设计早餐！</p>
+                <p style="font-size: 25px; color: red; text-align: center;  "> 请您登录</p>
 
+            </div>
+        </div>
+
+
+        <div class="login-form" style="text-align: center; ">
+            <form name="input" action="http://localhost/index.php/start/login" method="post">
+                <div class="control-group">
+                    <?php echo form_error('user_id'); ?>
+                    <input type="text"  name="user_id" value="<?php echo set_value('user_id'); ?>" class="login-field" placeholder="请输入手机号码" id="login-name">
+                    <label class="login-field-icon fui-man-16" for="login-name"></label>
+                </div>
+
+                <div class="control-group" >
+                    <?php echo form_error('passwd'); ?>
+                    <input type="password" name="passwd"  value="<?php echo set_value('passwd'); ?>" class="login-field"  placeholder="请输入密码" id="login-pass">
+                    <label class="login-field-icon fui-lock-16" for="login-pass"></label>
+                </div>
+                <input type="submit"  method="get" class="btn btn-primary btn-large btn-block" role="button" value='点击我就可登录了哦' />
+              
+                <a class="login-link" href="http://localhost/index.php/start/forget">忘记密码？</a>
+            </form>
+        </div>
+
+
+
+        <script>
+            $(".navbar-nav a").click(function (e) {
+                $(this).tab("show");
+            })
+        </script>
+
+
+
+
+    </body>
+</html>
