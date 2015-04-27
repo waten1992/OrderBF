@@ -192,10 +192,12 @@ class Start extends CI_Controller {
     }
     function test()
     {
-        $this->load->view('test');
-        $hidden = array('username' => 'Joe', 'member_id' => '234');
+        $data['num']  = 3;
+      $this->load->view('test',$data);
+       
+        $data = array('username' => 'Joe', 'member_id' => '234');
 
-       echo form_open('shop_cart/add', '', $hidden);
+       echo form_hidden($data);
     }
 
 }
