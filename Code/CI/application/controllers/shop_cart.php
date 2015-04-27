@@ -19,6 +19,8 @@ class Shop_cart extends CI_Controller {
         $qty = $this->uri->segment(4);
         echo $item_id;
         echo br();
+        $uname = $this->input->get("username");
+        echo $uname; 
         if ($this->session->userdata('logged_in')) {
             // 已经登录了
         } else {

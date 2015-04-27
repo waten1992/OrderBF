@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
     <head>
-       
+
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Keywords" content="orderbf,定早餐,毕业设计,独立博客" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,18 +65,23 @@
                         <h3 style="color: green">绿豆豆浆</h3>
                         <p style="color: red">价格:2￥</p>
                         <p>原磨豆浆，好喝还降火</p>
-                        <p><a href="http://localhost/index.php/shop_cart/add/100/1" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">选我哦</a></p>
+                        <p><a href="http://localhost/index.php/shop_cart/add/100/1" class="btn btn-primary" id ="cart" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">选我哦</a></p>
                     </div>
                 </div>
 
             </div><img src="http://localhost/images/pd/bread01.jpg" alt="这个是面包" style="width: 350px; height: 350px;">
-                    <div class="caption">
-                        <h3 style="color: green">面包</h3>
-                        <p style="color: red">价格:6.5￥</p>
-                        <p>新鲜出炉的面包好吃</p>
-                        <p><a href="http://localhost/index.php/shop_cart/add" class="btn btn-primary" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">选我哦</a></p>
-                    </div>
-                </div>
+            <div class="caption">
+                <h3 style="color: green">面包</h3>
+                <p style="color: red">价格:6.5￥</p>
+                <p>新鲜出炉的面包好吃</p>
+                <form action="http://localhost/index.php/shop_cart/add/101">
+                    数量: <input type="number" name="qty" min="1" max="10" value="1"/>
+                    <input type="hidden" name="item_id" value="101" />
+                    <input type="submit"  method="get" class="btn btn-primary" role="button" value='加入购物车' />
+                </form>
+                <p><a href="http://localhost/index.php/shop_cart/add" class="btn btn-primary" role="button">选我哦</a> </p>
+            </div>
+        </div>
 
     </div>
 </div>
@@ -91,6 +96,13 @@
         $(this).tab("show");
     })
 </script>
-
+<script>
+    var cart = document.getElementById("cart");
+    cart.addEventListener("click", test);
+    function test()
+    {
+        alert("this is a test");
+    }
+</script>
 </body>
 </html>
