@@ -8,25 +8,50 @@ class Shop_cart extends CI_Controller {
     }
 
     function index() {
-        $this->cart->contents(); //显示购物车中的数据
+        if ($this->session->userdata('logged_in')) {
+            $this->load->view('show/shop_cart_show');
+        } else {
+             $this->load->view('log/tell_info'); //提示用户还没有登录
+        }
     }
 
     function add() {
         //接受传过来的数据
         //判断是已经登录了，是继续，否者则转到登录页面
 // $this->cart->insert($data); //插入数据
-        $item_id = $this->uri->segment(3);
-        $qty = $this->uri->segment(4);
-        echo $item_id;
-        echo br();
-        $uname = $this->input->get("username");
-        echo $uname; 
+
+        $data = array(
+            'id' => $this->input->get('item_id'),
+            'qty' => $this->input->get('qty'),
+            'price' => $this->input->get('price'),
+            'name' => $this->input->get('item_name')
+        );
         if ($this->session->userdata('logged_in')) {
-            // 已经登录了
+            // 已经登录了 ，加入购物车，是否去购物车结算页面
+            $rowid = $this->cart->insert($data); //插入购物车
+            //     echo $rowid;
+
+            $cart = $this->cart->contents();
+            //  var_dump($cart);
+            //echo $cart["rowid"];
+
+            $this->load->view('show/shop_cart_show');
         } else {
-            echo "you didn't log " ;
+            $this->load->view('log/tell_info'); //提示用户还没有登录
         }
-        echo 'add sucess!';
+    }
+
+    function update() {
+        $data = array(
+            'rowid' => 'b99ccdf16028f015540f341130b6d8ec',
+            'qty' => 3
+        );
+
+        $this->cart->update($data);
+    }
+
+    function settled() {
+        echo $this->cart->total();
     }
 
 }

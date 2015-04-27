@@ -8,7 +8,37 @@ class Start extends CI_Controller {
     }
 
     function index() {
-        $this->load->view('home');
+        $query_soybean = $this->db->get_where('items', array('item_id' => "100")); //获取豆浆信息
+        $query_bread = $this->db->get_where('items', array('item_id' => "200")); //获取面包信息
+        $cart_num = $this->cart->total_items();
+        if ($query_soybean->num_rows() >= 1) {
+            foreach ($query_soybean->result() as $row)
+                $var_soybean = $row->price;
+            $soybean_name = $row->item_name;
+            $soybean_pd = $row->pd_explain;
+        }
+        if ($query_bread->num_rows() >= 1) {
+            foreach ($query_bread->result() as $row)
+                $var_bread = $row->price;
+            $bread_name = $row->item_name;
+            $bread_pd = $row->pd_explain;
+        }
+
+        $data = array(
+            'soybean' => $var_soybean,
+            'soybean_name' => $soybean_name,
+            'soybean_pd' => $soybean_pd,
+            'bread' => $var_bread,
+            'bread_name' => $bread_name,
+            'bread_pd' => $bread_pd,
+            'num' => $cart_num
+        );
+        
+        if ($this->session->userdata('logged_in')) {
+            $this->load->view('log/home_logout',$data); //转到具有logout的主页
+        } else {
+            $this->load->view('home', $data);
+        }
     }
 
     function register() {
@@ -35,7 +65,7 @@ class Start extends CI_Controller {
 
 
 
-            $this->load->view('home'); //默认返回主页
+            $this->index(); //默认返回主页
         }
     }
 
@@ -66,7 +96,7 @@ class Start extends CI_Controller {
 
             $query = $this->db->get_where('users', array('user_id' => $iphone, 'passwd' => $pwd));
             //相当于 select * from users where user_id = $iphone and passwd= $pwd ;
-            /* 对session的测试
+            /* 对session的测试 
               $arr_session = $this->session->all_userdata();
               foreach ($arr_session as $key => $value) {
               echo $key . "=>" . $value;
@@ -84,7 +114,7 @@ class Start extends CI_Controller {
                 );
                 $this->session->set_userdata($newdata); //加入session 中
 
-                $this->load->view('log/home_logout'); //转到具有logout的主页
+                $this->index(); //转到具有logout的主页
             }
         }
     }
@@ -92,7 +122,7 @@ class Start extends CI_Controller {
     function logout() {
         $this->cart->destroy(); //销毁购物车
         $this->session->sess_destroy(); //销毁session
-        $this->load->view('home'); //返回主页
+        $this->index();
     }
 
     function about() {
@@ -190,38 +220,34 @@ class Start extends CI_Controller {
         $name = $this->session->userdata('username');
         echo $name;
     }
-    function test()
-    {
-         $query_soybean = $this->db->get_where('items', array('item_id' => "100"));//获取豆浆信息
-         $query_bread = $this->db->get_where('items', array('item_id' => "200")); //获取面包信息
-         $cart_num = $this->cart->total_items();
-         if($query_soybean->num_rows() >= 1)
-         {  
-             foreach ( $query_soybean->result() as $row)
-             $var_soybean = $row->price;
-             $soybean_name = $row->item_name;
-             $soybean_pd = $row->pd_explain;
-         }
-        if($query_bread->num_rows() >= 1)
-         {  
-             foreach ( $query_bread->result() as $row)
-             $var_bread = $row->price;
-             $bread_name = $row->item_name;
-             $bread_pd = $row->pd_explain;
-         }
-         
-      $data = array(
-          'soybean' => $var_soybean,
-          'soybean_name' => $soybean_name,
-          'soybean_pd'=>$soybean_pd,
-          'bread' => $var_bread,
-          'bread_name' => $bread_name,
-          'bread_pd' => $bread_pd,
-          'num' => $cart_num
-      );
-      $this->load->view('test',$data);
-       
-     
+
+    function test() {
+        $query_soybean = $this->db->get_where('items', array('item_id' => "100")); //获取豆浆信息
+        $query_bread = $this->db->get_where('items', array('item_id' => "200")); //获取面包信息
+        $cart_num = $this->cart->total_items();
+        if ($query_soybean->num_rows() >= 1) {
+            foreach ($query_soybean->result() as $row)
+                $var_soybean = $row->price;
+            $soybean_name = $row->item_name;
+            $soybean_pd = $row->pd_explain;
+        }
+        if ($query_bread->num_rows() >= 1) {
+            foreach ($query_bread->result() as $row)
+                $var_bread = $row->price;
+            $bread_name = $row->item_name;
+            $bread_pd = $row->pd_explain;
+        }
+
+        $data = array(
+            'soybean' => $var_soybean,
+            'soybean_name' => $soybean_name,
+            'soybean_pd' => $soybean_pd,
+            'bread' => $var_bread,
+            'bread_name' => $bread_name,
+            'bread_pd' => $bread_pd,
+            'num' => $cart_num
+        );
+        $this->load->view('test', $data);
     }
 
 }
