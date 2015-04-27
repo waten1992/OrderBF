@@ -6,7 +6,7 @@
         <meta name="Keywords" content="orderbf,定早餐,毕业设计,独立博客" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-        <title>Bootstrap 101 Template</title>
+        <title>Orderbf Home</title>
 
         <!-- Bootstrap -->
         <link href="http://localhost/css/bootstrap.min.css" rel="stylesheet">
@@ -65,9 +65,11 @@
                         <h3 style="color: green"><?php echo $soybean_name; ?></h3>
                         <p style="color: red">价格:<?php echo $soybean; ?>￥</p>
                         <p><?php echo $soybean_pd; ?></p>
-                        <form action="http://localhost/index.php/shop_cart/add/100">
+                        <form action="http://localhost/index.php/shop_cart/add">
                             数量: <input type="number" name="qty" min="1" max="10" value="1"/>
                             <input type="hidden" name="item_id" value="100" />
+                            <input type="hidden" name="item_name" value= <?php echo $soybean_name; ?> />
+                            <input type="hidden" name="price" value= <?php echo $soybean; ?> />
                             <input type="submit"  method="get" class="btn btn-primary" role="button" value='加入购物车' />
                         </form>
                         <br>
@@ -85,14 +87,16 @@
                         <form action="http://localhost/index.php/shop_cart/add/200">
                             数量: <input type="number" name="qty" min="1" max="10" value="1"/>
                             <input type="hidden" name="item_id" value="200" />
+                            <input type="hidden" name="item_name" value= <?php echo $bread_name; ?> />
+                            <input type="hidden" name="price" value= <?php echo $bread; ?> />
                             <input type="submit"  method="get" class="btn btn-primary" role="button" value='加入购物车' />
                         </form>
                         <br/>
-                        <p><a href="http://localhost/index.php/shop_cart/add" class="btn btn-info" role="button">选我啦，我最好吃啦</a> </p>
+                        <p><a href="#" class="btn btn-info" role="button">选我啦，我最好吃啦</a> </p>
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
 
