@@ -62,47 +62,53 @@
                 <div class="thumbnail">
                     <img src="http://localhost/images/pd/Soybean.png" alt="这个是豆浆" style="width: 350px; height: 350px;">
                     <div class="caption">
-                        <h3 style="color: green">绿豆豆浆</h3>
-                        <p style="color: red">价格:2￥</p>
-                        <p>原磨豆浆，好喝还降火</p>
-                        <p><a href="http://localhost/index.php/shop_cart/add/100/1" class="btn btn-primary" id ="cart" role="button">加入购物车</a> <a href="#" class="btn btn-default" role="button">选我哦</a></p>
+                        <h3 style="color: green"><?php echo $soybean_name; ?></h3>
+                        <p style="color: red">价格:<?php echo $soybean; ?>￥</p>
+                        <p><?php echo $soybean_pd; ?></p>
+                        <form action="http://localhost/index.php/shop_cart/add/100">
+                            数量: <input type="number" name="qty" min="1" max="10" value="1"/>
+                            <input type="hidden" name="item_id" value="100" />
+                            <input type="submit"  method="get" class="btn btn-primary" role="button" value='加入购物车' />
+                        </form>
+                        <br>
+                        <p> <a href="#" class="btn btn-info" role="button">选我,我最好喝了啦</a></p>
                     </div>
                 </div>
-
-            </div><img src="http://localhost/images/pd/bread01.jpg" alt="这个是面包" style="width: 350px; height: 350px;">
-            <div class="caption">
-                <h3 style="color: green">面包</h3>
-                <p style="color: red">价格:6.5￥</p>
-                <p>新鲜出炉的面包好吃</p>
-                <form action="http://localhost/index.php/shop_cart/add/101">
-                    数量: <input type="number" name="qty" min="1" max="10" value="1"/>
-                    <input type="hidden" name="item_id" value="101" />
-                    <input type="submit"  method="get" class="btn btn-primary" role="button" value='加入购物车' />
-                </form>
-                <p><a href="http://localhost/index.php/shop_cart/add" class="btn btn-primary" role="button">选我哦</a> </p>
             </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="http://localhost/images/pd/bread01.jpg" alt="这个是面包" style="width: 350px; height: 350px;">
+                    <div class="caption">
+                        <h3 style="color: green"><?php echo $bread_name; ?></h3>
+                        <p style="color: red">价格:<?php echo $bread; ?>￥</p>
+                        <p><?php echo $bread_pd; ?></p>
+                        <form action="http://localhost/index.php/shop_cart/add/200">
+                            数量: <input type="number" name="qty" min="1" max="10" value="1"/>
+                            <input type="hidden" name="item_id" value="200" />
+                            <input type="submit"  method="get" class="btn btn-primary" role="button" value='加入购物车' />
+                        </form>
+                        <br/>
+                        <p><a href="http://localhost/index.php/shop_cart/add" class="btn btn-info" role="button">选我啦，我最好吃啦</a> </p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
 
-    </div>
-</div>
 
 
-
-
-
-
-<script>
-    $(".navbar-nav a").click(function (e) {
-        $(this).tab("show");
-    })
-</script>
-<script>
-    var cart = document.getElementById("cart");
-    cart.addEventListener("click", test);
-    function test()
-    {
-        alert("this is a test");
-    }
-</script>
-</body>
+        <script>
+            $(".navbar-nav a").click(function (e) {
+                $(this).tab("show");
+            })
+        </script>
+        <script>
+            var cart = document.getElementById("cart");
+            cart.addEventListener("click", test);
+            function test()
+            {
+                alert("this is a test");
+            }
+        </script>
+    </body>
 </html>
