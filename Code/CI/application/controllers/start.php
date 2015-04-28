@@ -161,7 +161,7 @@ class Start extends CI_Controller {
             }
             $this->email->from('waten1company@163.com', '找回密码');
             $this->email->to($email);
-            $message_content = "hey , users , thankyou login orderbf please click me: http://localhost/index.php/start/verify_forget_passwd/$iphone/$query_passwd";
+            $message_content = "你好Orderbf User,重置密码请点击: http://localhost/index.php/start/verify_forget_passwd/$iphone/$query_passwd";
             $this->email->subject("找回密码");
             $this->email->message($message_content);
 
@@ -198,7 +198,7 @@ class Start extends CI_Controller {
         }
     }
 
-    function handle_refill_passwd() {
+    function handle_refill_passwd() {  //重置密码的处理函数
         if ($this->form_validation->run('new_passwd_verify') == FALSE) {
             echo "fail---"; //验证失败，要重新验证
         } else {

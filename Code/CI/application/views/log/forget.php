@@ -104,7 +104,7 @@
 
 
         <div class="login-form" style="text-align: center; ">
-            <form name="input" action="http://localhost/index.php/start/login" method="post">
+            <form name="input" action="http://localhost/index.php/start/handle_forget" method="post">
                 <div class="control-group">
                     <?php echo form_error('user_id'); ?>
                     <input type="text"  name="user_id" value="<?php echo set_value('user_id'); ?>" class="login-field" placeholder="请输入手机号码" id="login-name">
