@@ -14,6 +14,9 @@
         <script src="http://localhost/js/jquery-2.1.3"></script>
         <script src="http://localhost/js/bootstrap.min.js"></script>
         <script src="http://localhost/js/carousel.js"></script>
+        <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     </head>
 
     <body>
@@ -49,11 +52,39 @@
                 </div>
             </nav>
         </div>
-        <div class = "container">
-            <div class="jumbotron" style="text-align: center; "> 
-                <h1>Welcome to Orderbf</h1>
-                <p style="font-size: 30px; color: green; text-align: center; margin-top: 30px; "> Orderbf 专注为您设计早餐</p>
-                <p> <a class="btn btn-info btn-lg" href="http://localhost/index.php/start/about" role="button">详情</a></p>
+
+
+
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="carousel slide" id="carousel-899479">
+                        <ol class="carousel-indicators">
+                            <li class="active" data-slide-to="0" data-target="#carousel-899479">
+                            </li>
+                            <li data-slide-to="1" data-target="#carousel-899479">
+                        </ol>
+                        <div class="carousel-inner" >
+                            <div class="item active">
+                                <img alt="" src="http://localhost/images/login/welcome.jpg"  style="width: 100%; height: 400px;"/>
+                                <div class="carousel-caption">
+                                    <h3 style="color: rgb(16,223,60);">
+                                        Orderbf 为您提供优质的服务！
+                                    </h3>
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img alt="" src="http://localhost/images/login/welcome_04.jpg" style="width: 100%; height: 400px;" />
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+
+                        </div> <a data-slide="prev" href="#carousel-899479" class="left carousel-control" >‹</a> <a data-slide="next" href="#carousel-899479" class="right carousel-control">›</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -96,26 +127,6 @@
                     </div>
                 </div>
             </div>
-            
-             <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://localhost/images/pd/Tomato.gif" alt="这个是番茄汁" style="width: 350px; height: 350px;">
-                    <div class="caption">
-                        <h3 style="color: green"><?php echo $tomato_name; ?></h3>
-                        <p style="color: red">价格:<?php echo $tomato_price; ?>￥</p>
-                        <p><?php echo $tomato_pd; ?></p>
-                        <form action="http://localhost/index.php/shop_cart/add/300">
-                            数量: <input type="number" name="qty" min="1" max="10" value="1"/>
-                            <input type="hidden" name="item_id" value="300" />
-                            <input type="hidden" name="item_name" value= <?php echo $tomato_name; ?> />
-                            <input type="hidden" name="price" value= <?php echo $tomato_price; ?> />
-                            <input type="submit"  method="get" class="btn btn-primary" role="button" value='加入购物车' />
-                        </form>
-                        <br/>
-                        <p><a href="#" class="btn btn-info" role="button">选我啦，我最好吃啦</a> </p>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
@@ -126,6 +137,8 @@
                 $(this).tab("show");
             })
         </script>
+
+
 
     </body>
 </html>

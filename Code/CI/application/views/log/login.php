@@ -105,15 +105,15 @@
 
         <div class="login-form" style="text-align: center; ">
             <form name="input" action="http://localhost/index.php/start/login" method="post">
-                <div class="control-group">
+                <div class="control-group"   >
                     <?php echo form_error('user_id'); ?>
-                    <input type="text"  name="user_id" value="<?php echo set_value('user_id'); ?>" class="login-field" placeholder="请输入手机号码" id="login-name">
+                   手机： <input  type="text"  name="user_id" value="<?php echo set_value('user_id'); ?>" class="login-field" placeholder="请输入手机号码" id="login-name">
                     <label class="login-field-icon fui-man-16" for="login-name"></label>
                 </div>
 
                 <div class="control-group" >
                     <?php echo form_error('passwd'); ?>
-                    <input type="password" name="passwd"  value="<?php echo set_value('passwd'); ?>" class="login-field"  placeholder="请输入密码" id="login-pass">
+                    密码：<input type="password" name="passwd"  value="<?php echo set_value('passwd'); ?>" class="login-field"  placeholder="请输入密码" id="login-pass">
                     <label class="login-field-icon fui-lock-16" for="login-pass"></label>
                 </div>
                 <input type="submit"  method="get" class="btn btn-primary btn-large btn-block" role="button" value='点击我就可登录了哦' />

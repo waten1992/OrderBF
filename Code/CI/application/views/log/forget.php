@@ -107,13 +107,13 @@
             <form name="input" action="http://localhost/index.php/start/handle_forget" method="post">
                 <div class="control-group">
                     <?php echo form_error('user_id'); ?>
-                    <input type="text"  name="user_id" value="<?php echo set_value('user_id'); ?>" class="login-field" placeholder="请输入手机号码" id="login-name">
+                   手机： <input type="text"  name="user_id" value="<?php echo set_value('user_id'); ?>" class="login-field" placeholder="请输入手机号码" id="login-name">
                     <label class="login-field-icon fui-man-16" for="login-name"></label>
                 </div>
 
                 <div class="control-group" >
                    <?php echo form_error('email'); ?> 
-                    <input type="email" name="email"  value="<?php echo set_value('email'); ?>" class="login-field"  placeholder="请输入邮箱" id="login-pass">
+                    邮箱：<input type="email" name="email"  value="<?php echo set_value('email'); ?>" class="login-field"  placeholder="请输入邮箱" id="login-pass">
                     <label class="login-field-icon fui-lock-16" for="login-pass"></label>
                 </div>
                 
