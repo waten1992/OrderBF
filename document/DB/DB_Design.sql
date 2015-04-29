@@ -46,15 +46,20 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` int(32) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` varchar(11) DEFAULT NULL,
   `item_id` varchar(8) NOT NULL DEFAULT '',
-  `time` date DEFAULT NULL,
+  `createtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `amount` float(5,2) DEFAULT NULL,
   `pay_pattern` tinyint(1) unsigned DEFAULT '0',
-  `status` varchar(4) DEFAULT NULL,
+  `status` tinyint(1) unsigned DEFAULT '0',
   PRIMARY KEY (`order_id`,`item_id`),
   UNIQUE KEY `order_id` (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=100 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=101 ;
 
+--
+-- 转存表中的数据 `orders`
+--
 
+INSERT INTO `orders` (`order_id`, `user_id`, `item_id`, `createtime`, `amount`, `pay_pattern`, `status`) VALUES
+(100, '15919768825', '200', '2015-04-29 13:40:56', 6.50, 0, 0);
 
 CREATE TABLE IF NOT EXISTS `items` (
   `item_id` varchar(8) NOT NULL,
