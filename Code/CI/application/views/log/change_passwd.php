@@ -96,13 +96,13 @@
                 
                 <div class="control-group" >
                     <?php echo form_error('passwd'); ?>
-                      手机：<input type="password" name="passwd"  value="<?php echo set_value('passwd'); ?>" class="login-field"  placeholder="请输入新密码" id="login-pass">
+                      新密码：<input type="password" name="passwd"  value="<?php echo set_value('passwd'); ?>" class="login-field"  placeholder="请输入新密码" id="login-pass">
                     <label class="login-field-icon fui-lock-16" for="login-pass"></label>
                 </div>
 
                 <div class="control-group" >
                     <?php echo form_error('passconf');  ?>
-                     邮箱： <input type="password" name="passconf"  value="<?php echo set_value('passconf'); ?>" class="login-field"  placeholder="请再次输入密码" id="login-pass">
+                     确认密码： <input type="password" name="passconf"  value="<?php echo set_value('passconf'); ?>" class="login-field"  placeholder="请再次输入密码" id="login-pass">
                     <label class="login-field-icon fui-lock-16" for="login-pass"></label>
                 </div>
                 
