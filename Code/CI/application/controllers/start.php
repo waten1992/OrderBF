@@ -26,22 +26,22 @@ class Start extends CI_Controller {
         }
         if ($query_tomato->num_rows() >= 1) {
             foreach ($query_tomato->result() as $row)
-            $tomato_price = $row->price;
+                $tomato_price = $row->price;
             $tomato_name = $row->item_name;
             $tomato_pd = $row->pd_explain;
         }
 
         $data = array(
-        'soybean' => $var_soybean,
-        'soybean_name' => $soybean_name,
-        'soybean_pd' => $soybean_pd,
-        'bread' => $var_bread,
-        'bread_name' => $bread_name,
-        'bread_pd' => $bread_pd,
-        'tomato_price' =>$tomato_price,
+            'soybean' => $var_soybean,
+            'soybean_name' => $soybean_name,
+            'soybean_pd' => $soybean_pd,
+            'bread' => $var_bread,
+            'bread_name' => $bread_name,
+            'bread_pd' => $bread_pd,
+            'tomato_price' => $tomato_price,
             'tomato_name' => $tomato_name,
             'tomato_pd' => $tomato_pd,
-        'num' => $cart_num
+            'num' => $cart_num
         );
 
         if ($this->session->userdata('logged_in')) {
@@ -177,7 +177,6 @@ class Start extends CI_Controller {
 
 
             if ($this->email->send()) {
-
                 echo 'success...';
             } else {
                 echo 'failed...';
@@ -204,7 +203,7 @@ class Start extends CI_Controller {
             $this->session->set_userdata($newdata); //载入session ,在后面的handle_refill_passwd处理
             $this->load->view("log/change_passwd");
         } else {
-            echo "you verify password is wrong";
+            $this->load->view('log/verify_error');
         }
     }
 
