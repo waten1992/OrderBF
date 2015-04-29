@@ -13,22 +13,25 @@ class Start extends CI_Controller {
         $query_tomato = $this->db->get_where('items', array('item_id' => "300")); //获取番茄汁
         $cart_num = $this->cart->total_items();
         if ($query_soybean->num_rows() >= 1) {
-            foreach ($query_soybean->result() as $row)
+            foreach ($query_soybean->result() as $row) {
                 $var_soybean = $row->price;
-            $soybean_name = $row->item_name;
-            $soybean_pd = $row->pd_explain;
+                $soybean_name = $row->item_name;
+                $soybean_pd = $row->pd_explain;
+            }
         }
         if ($query_bread->num_rows() >= 1) {
-            foreach ($query_bread->result() as $row)
+            foreach ($query_bread->result() as $row) {
                 $var_bread = $row->price;
-            $bread_name = $row->item_name;
-            $bread_pd = $row->pd_explain;
+                $bread_name = $row->item_name;
+                $bread_pd = $row->pd_explain;
+            }
         }
         if ($query_tomato->num_rows() >= 1) {
-            foreach ($query_tomato->result() as $row)
+            foreach ($query_tomato->result() as $row) {
                 $tomato_price = $row->price;
-            $tomato_name = $row->item_name;
-            $tomato_pd = $row->pd_explain;
+                $tomato_name = $row->item_name;
+                $tomato_pd = $row->pd_explain;
+            }
         }
 
         $data = array(
@@ -177,7 +180,7 @@ class Start extends CI_Controller {
 
 
             if ($this->email->send()) {
-               // echo 'success...';
+                // echo 'success...';
             } else {
                 echo 'failed...';
                 $this->email->print_debugger();
@@ -214,7 +217,7 @@ class Start extends CI_Controller {
             //验证成功要更新数据库的密码；
             $pwd = $this->input->post('passwd'); //获取密码
             $pwd = do_hash($pwd, 'md5'); //MD5 处理
-           
+
             $data = array(
                 'passwd' => $pwd
             );
