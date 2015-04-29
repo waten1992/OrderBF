@@ -177,7 +177,7 @@ class Start extends CI_Controller {
 
 
             if ($this->email->send()) {
-                echo 'success...';
+               // echo 'success...';
             } else {
                 echo 'failed...';
                 $this->email->print_debugger();
@@ -209,12 +209,12 @@ class Start extends CI_Controller {
 
     function handle_refill_passwd() {  //重置密码的处理函数
         if ($this->form_validation->run('new_passwd_verify') == FALSE) {
-            echo "fail---"; //验证失败，要重新验证
+            $this->load->view('log/forget'); //验证失败，要重新验证
         } else {
             //验证成功要更新数据库的密码；
             $pwd = $this->input->post('passwd'); //获取密码
             $pwd = do_hash($pwd, 'md5'); //MD5 处理
-            echo $pwd . br();
+           
             $data = array(
                 'passwd' => $pwd
             );
@@ -222,6 +222,7 @@ class Start extends CI_Controller {
             $name = $this->session->userdata('username');
             $this->db->update('users', $data, "user_id = $name");
             $this->db->trans_complete(); //关闭事务
+            $this->load->view('log/change_passwd_success'); //转到具有logout的主页 
         }
     }
 
