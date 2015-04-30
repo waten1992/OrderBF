@@ -96,12 +96,10 @@
 
 
         <div style="margin-right: 20px;">
-
-            <a href="http://localhost/index.php/shop_cart/settled">
-                <button type = "button" class = " btn btn-success navbar-btn navbar-right" style="font-size: 30px;margin-right: 20px;" >去支付</button>
+            <a href="http://localhost/index.php/shop_cart/handle_settled">
+                <button type = "button" class = " btn btn-success navbar-btn navbar-right" style="font-size: 30px;margin-right: 20px;" >去结算</button>
             </a>
         </div>
-
 
 
     </body>
