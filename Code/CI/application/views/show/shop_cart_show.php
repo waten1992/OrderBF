@@ -33,6 +33,19 @@
                             <li > <a href ="http://localhost/index.php/start/about">关于orderbf</a> </li>
                             <li > <a href ="http://localhost/index.php/start/contact">联系orderbf</a> </li>
                         </ul>
+
+                        <div>
+                            <a href="http://localhost/index.php/start/logout">
+                                <button type = "button" class = " btn btn-default navbar-btn navbar-right" >Sign Out</button>
+                            </a>
+                        </div>
+                        <div >
+                            <a href="http://localhost/index.php/shop_cart/index">  
+                                <button class="btn btn-success navbar-btn " type="button" > 购物车 
+                                    <span class="badge"> <?php echo $this->cart->total_items(); ?></span>
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </nav>
