@@ -284,7 +284,42 @@ class Start extends CI_Controller {
                     $this->load->view('show/list_record_tables', $data);
                 }
             }
-          
+        } else {
+            $this->load->view('log/tell_info');
+        }
+    }
+
+    function change_info() {
+        if ($this->session->userdata('logged_in')) {
+            $this->load->view('log/change_info');
+        } else {
+            $this->load->view('log/tell_info');
+        }
+    }
+
+    function change_email() {
+        if ($this->session->userdata('logged_in')) {
+            $this->load->view('log/change_email');
+        } else {
+            $this->load->view('log/tell_info');
+        }
+    }
+
+    function handle_change_email() {
+        $email = $this->input->post('email');
+        $data = array(
+            'email' => $email
+        );
+        $this->db->trans_start(); //打开事务
+        $name = $this->session->userdata('username');
+        $this->db->update('users', $data, "user_id = $name");
+        $this->db->trans_complete(); //关闭事务
+        $this->load->view('log/change_email_success'); //转到具有logout的主页 
+    }
+
+    function change_address() {
+        if ($this->session->userdata('logged_in')) {
+            $this->load->view('log/change_address');
         } else {
             $this->load->view('log/tell_info');
         }

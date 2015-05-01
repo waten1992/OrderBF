@@ -50,6 +50,9 @@ $route['start/verify_forget_passwd'] = 'start/verify_forget_passwd';
 $route['shop_cart/add'] = 'shop_cart/add';
 $route['start/list_record'] = 'start/list_record';
 
+$route['start/change_info'] = 'start/change_info';
+$route['start/change_email'] = 'start/change_email';
+$route['start/change_address'] = 'start/change_address';
 $route['shop_cart/handle_settled'] = 'shop_cart/handle_settled';
 $route['start/test'] = 'start/test';
 
