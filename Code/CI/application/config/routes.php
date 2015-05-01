@@ -48,6 +48,7 @@ $route['start/about'] = 'start/about';
 $route['start/contact'] = 'start/contact';
 $route['start/verify_forget_passwd'] = 'start/verify_forget_passwd';
 $route['shop_cart/add'] = 'shop_cart/add';
+$route['start/list_record'] = 'start/list_record';
 
 $route['shop_cart/handle_settled'] = 'shop_cart/handle_settled';
 $route['start/test'] = 'start/test';
