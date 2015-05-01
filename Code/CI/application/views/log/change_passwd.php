@@ -107,7 +107,7 @@
                 </div>
                 
                 
-                <input type="submit"  method="get" class="btn btn-primary btn-large" role="button" value='Login' />
+                <input type="submit"  method="post" class="btn btn-primary btn-large" role="button" value='Login' />
 
               
             </form>

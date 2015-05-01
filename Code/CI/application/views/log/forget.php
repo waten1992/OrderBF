@@ -117,7 +117,7 @@
                     <label class="login-field-icon fui-lock-16" for="login-pass"></label>
                 </div>
                 
-                <input type="submit"  method="get" class="btn btn-primary btn-large btn-block" role="button" value='点击我就回邮箱点击链接啦' />
+                <input type="submit"  method="post" class="btn btn-primary btn-large btn-block" role="button" value='点击我就回邮箱点击链接啦' />
 
                
             </form>
