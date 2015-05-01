@@ -30,6 +30,7 @@
                             <li class = "active"><a href ="http://localhost/index.php/start" >首页</a> </li>                          
                             <li > <a href ="http://localhost/index.php/start/about">关于orderbf</a> </li>
                             <li > <a href ="http://localhost/index.php/start/contact">联系orderbf</a> </li>
+                            <li > <a href ="http://localhost/index.php/start/yourself">个人信息</a> </li>
                         </ul>
                         <div>
                             <a href="http://localhost/index.php/start/logout">

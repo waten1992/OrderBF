@@ -97,7 +97,7 @@
 
         <div style="margin-right: 20px;">
             <a href="http://localhost/index.php/shop_cart/handle_settled">
-                <button type = "button" class = " btn btn-success navbar-btn navbar-right" style="font-size: 30px;margin-right: 20px;" >去结算</button>
+                <button type = "button" class = " btn btn-success navbar-btn navbar-right" style="font-size: 30px;margin-right: 20px;" >确认支付</button>
             </a>
         </div>
 
