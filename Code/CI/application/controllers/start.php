@@ -230,8 +230,64 @@ class Start extends CI_Controller {
     }
 
     function yourself() {
-        $name = $this->session->userdata('username');
-        echo $name;
+        if ($this->session->userdata('logged_in')) {
+            $name = $this->session->userdata('username');
+            $query = $this->db->get_where('users', array('user_id' => $name));
+            if ($query->num_rows() >= 1) {
+                foreach ($query->result() as $row) {
+                    $data = array(
+                        'user_id' => $row->user_id,
+                        'email' => $row->email,
+                        'address' => $row->address,
+                        'createtime' => $row->createtime
+                    );
+                }
+            }
+
+            $this->load->view('show/yourself', $data);
+        } else {
+            $this->load->view('log/tell_info');
+        }
+    }
+
+    function list_record() {  //从orders_master 取出数据
+        if ($this->session->userdata('logged_in')) {
+
+            $name = $this->session->userdata('username');
+            $query = $this->db->get_where('orders_master', array('user_id' => $name));
+            $this->load->view('show/list_record');
+            if ($query->num_rows() >= 1) {
+
+                foreach ($query->result() as $row) {
+
+                    $user_id = $row->user_id;
+                    $amount = $row->amount;
+                    $order_id = $row->order_id;
+                    $createtime = $row->createtime;
+
+                    $query_item_name = $this->db->get_where('orders_slave', array('user_id' => $user_id, 'order_id' => $order_id));
+                    $i = 0;
+                    $item_name = array();
+                    if ($query_item_name->num_rows() >= 1) {
+                        foreach ($query_item_name->result() as $items) {
+                            $item_name[$i] = $items->item_name;
+                            $i++;
+                        }
+                    }
+                    $data = array(
+                        'user_id' => $user_id,
+                        'amount' => $amount,
+                        'order_id' => $order_id,
+                        'createtime' => $createtime,
+                        'item_name' => $item_name
+                    );
+                    $this->load->view('show/list_record_tables', $data);
+                }
+            }
+          
+        } else {
+            $this->load->view('log/tell_info');
+        }
     }
 
     function test() {

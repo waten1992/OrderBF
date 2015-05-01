@@ -90,7 +90,8 @@ class Shop_cart extends CI_Controller {
         }
         $data_master = array(
             'amount' => $this->cart->total(),
-            'address' => $address
+            'address' => $address,
+            'user_id' => $user_id
         );
 
         $item_id = array(); //建立数组存取商品id
@@ -115,6 +116,7 @@ class Shop_cart extends CI_Controller {
                     $data_slave = array(
                         'order_id' => $order_id,
                         'user_id' => $user_id,
+                        'item_name' => $row->item_name,
                         'item_id' => $row->item_id,
                         'quantity' => $row->quantity,
                         'price' => $row->price
