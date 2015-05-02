@@ -54,11 +54,11 @@
                 <h1 style="text-align: center;">Welcome to Orderbf</h1>
                 <p style="font-size: 40px; color: red; text-align: center; margin-top: 30px; "> <?php echo "你的手机号码为：".$user_id ;?></p>
                  <p style=" margin-top: 30px; "> 
-                        <h3><?php echo "你的邮箱是：".$email ;?> </h3>
-                        <h3><?php echo "你的地址是：".$address ;?></h3>
+                        <h3><?php echo "你的邮箱是：".$email ;?> <a class="btn btn-info btn-lg" href="http://localhost/index.php/start/change_email" role="button">修改邮箱</a></h3>
+                        <h3><?php echo "你的地址是：".$address ;?> <a class="btn btn-info btn-lg" href="http://localhost/index.php/start/change_address" role="button">修改地址</a></h3>
                         
                  </p>
-                <p> <a class="btn btn-info btn-lg" href="http://localhost/index.php/start/index" role="button">看看我的主页吧</a></p>
+                <p> <a class="btn btn-info btn-lg" href="http://localhost/index.php/start/change_info" role="button">修改个人信息</a></p>
             </div>
         </div>
 

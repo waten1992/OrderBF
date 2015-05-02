@@ -53,7 +53,7 @@
             <div class="jumbotron" style="text-align: center; "> 
                 <h1>Welcome to Orderbf</h1>
                 <p style="font-size: 30px; color: red; text-align: center; margin-top: 30px; "> 您的验证出现了错误</p>
-                <p> <a class="btn btn-info btn-lg" href="http://localhost/index.php/start/about" role="button">详情</a></p>
+                <p> <a class="btn btn-info btn-lg" href="http://localhost/index.php/start" role="button">详情</a></p>
             </div>
         </div>
 
