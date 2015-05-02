@@ -83,7 +83,7 @@ class Start extends CI_Controller {
     }
 
     public function user_id_check($tel) { //检查是否是真正的手机号码
-        $iphone = preg_match("/^13[0-9]{1}[0-9]{8}$|15[0189]{1}[0-9]{8}$|189[0-9]{8}$/", $tel);
+        $iphone = preg_match("/^13[0-9]{1}[0-9]{8}$|15[0189]{1}[0-9]{8}$|18[79]{1}[0-9]{8}$/", $tel);
         if (!$iphone) {
             $this->form_validation->set_message('user_id_check', '你的 %s  不对');
             return FALSE;
@@ -306,15 +306,20 @@ class Start extends CI_Controller {
     }
 
     function handle_change_email() {
-        $email = $this->input->post('email');
-        $data = array(
-            'email' => $email
-        );
-        $this->db->trans_start(); //打开事务
-        $name = $this->session->userdata('username');
-        $this->db->update('users', $data, "user_id = $name");
-        $this->db->trans_complete(); //关闭事务
-        $this->load->view('log/change_email_success'); //转到具有logout的主页 
+        $this->form_validation->set_rules('email', '邮箱', 'trim|required|valid_email|is_unique[users.email]');
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('log/change_email');
+        } else {
+            $email = $this->input->post('email');
+            $data = array(
+                'email' => $email
+            );
+            $this->db->trans_start(); //打开事务
+            $name = $this->session->userdata('username');
+            $this->db->update('users', $data, "user_id = $name");
+            $this->db->trans_complete(); //关闭事务
+            $this->load->view('log/change_email_success'); //转到具有logout的主页
+        }
     }
 
     function change_address() {
@@ -322,6 +327,23 @@ class Start extends CI_Controller {
             $this->load->view('log/change_address');
         } else {
             $this->load->view('log/tell_info');
+        }
+    }
+
+    function handle_change_address() {
+        $this->form_validation->set_rules('address', '地址', 'trim|required');
+        if ($this->form_validation->run() == FALSE) {
+           $this->load->view('log/change_address');
+        } else {
+            $address = $this->input->post('address');
+            $data = array(
+                'address' => $address
+            );
+            $this->db->trans_start(); //打开事务
+            $name = $this->session->userdata('username');
+            $this->db->update('users', $data, "user_id = $name");
+            $this->db->trans_complete(); //关闭事务
+            $this->load->view('log/change_address_success'); //转到具有logout的主页 
         }
     }
 
