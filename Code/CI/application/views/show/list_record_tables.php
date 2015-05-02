@@ -4,7 +4,7 @@
                 <table class="table" style="margin-left: 30px; margin-right: 30px; margin-top: 20px;">
                     <tbody>
                         <tr class="info" >
-                            <td>
+                            <td  style="text-align: center;">
                                 <?php
                              
                                     echo $order_id ;
@@ -18,14 +18,15 @@
                                 }
                                 ?>
                             </td>
-                            <td>
+                            <td style="text-align: center;">
                                 <?php
                                
                                     echo $createtime;
                           
                                 ?>
                             </td>
-                            <td>
+                          
+                            <td style="text-align: center;">
                                 <?php echo $amount; ?>
                             </td>
                         </tr>
