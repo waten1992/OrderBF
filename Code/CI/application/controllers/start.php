@@ -256,6 +256,7 @@ class Start extends CI_Controller {
             $name = $this->session->userdata('username');
             $query = $this->db->get_where('orders_master', array('user_id' => $name));
             $this->load->view('show/list_record');
+         
             if ($query->num_rows() >= 1) {
 
                 foreach ($query->result() as $row) {
@@ -264,7 +265,8 @@ class Start extends CI_Controller {
                     $amount = $row->amount;
                     $order_id = $row->order_id;
                     $createtime = $row->createtime;
-
+                    $status = $row->status;
+                    
                     $query_item_name = $this->db->get_where('orders_slave', array('user_id' => $user_id, 'order_id' => $order_id));
                     $i = 0;
                     $item_name = array();
@@ -279,9 +281,11 @@ class Start extends CI_Controller {
                         'amount' => $amount,
                         'order_id' => $order_id,
                         'createtime' => $createtime,
+                        'status' => $status,
                         'item_name' => $item_name
                     );
                     $this->load->view('show/list_record_tables', $data);
+                   
                 }
             }
         } else {
