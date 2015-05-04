@@ -17,6 +17,7 @@ class Start extends CI_Controller {
                 $var_soybean = $row->price;
                 $soybean_name = $row->item_name;
                 $soybean_pd = $row->pd_explain;
+                $soybean_capacity = $row->capacity;
             }
         }
         if ($query_bread->num_rows() >= 1) {
@@ -24,6 +25,7 @@ class Start extends CI_Controller {
                 $var_bread = $row->price;
                 $bread_name = $row->item_name;
                 $bread_pd = $row->pd_explain;
+                $bread_capacity = $row->capacity;
             }
         }
         if ($query_tomato->num_rows() >= 1) {
@@ -31,6 +33,7 @@ class Start extends CI_Controller {
                 $tomato_price = $row->price;
                 $tomato_name = $row->item_name;
                 $tomato_pd = $row->pd_explain;
+                $tomato_capacity = $row->capacity;
             }
         }
 
@@ -38,12 +41,15 @@ class Start extends CI_Controller {
             'soybean' => $var_soybean,
             'soybean_name' => $soybean_name,
             'soybean_pd' => $soybean_pd,
+            'soybean_capacity' => $soybean_capacity,
             'bread' => $var_bread,
             'bread_name' => $bread_name,
             'bread_pd' => $bread_pd,
+            'bread_capacity' => $bread_capacity,
             'tomato_price' => $tomato_price,
             'tomato_name' => $tomato_name,
             'tomato_pd' => $tomato_pd,
+            'tomato_capacity' =>$tomato_capacity,
             'num' => $cart_num
         );
 
@@ -51,6 +57,8 @@ class Start extends CI_Controller {
             $this->load->view('log/home_logout', $data); //转到具有logout的主页
         } else {
             $this->load->view('home', $data);
+       // $this->load->view('new_test',$data); //测试用的
+            
         }
     }
 

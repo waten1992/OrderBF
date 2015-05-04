@@ -64,9 +64,11 @@
                     <div class="caption">
                         <h3 style="color: green"><?php echo $soybean_name; ?></h3>
                         <p style="color: red">价格:<?php echo $soybean; ?>￥</p>
+                        <p style="color: green;">还剩：<?php echo $soybean_capacity; ?></p>
                         <p><?php echo $soybean_pd; ?></p>
                         <form action="http://localhost/index.php/shop_cart/add">
-                            数量: <input type="number" name="qty" min="1" max="10" value="1"/>
+                            数量: <input type="number" name="qty" min="1" max=<?php echo $soybean_capacity; ?> value="1"/>
+                            <input type="hidden" name="capacity" value=<?php echo $soybean_capacity; ?> />
                             <input type="hidden" name="item_id" value="100" />
                             <input type="hidden" name="item_name" value= <?php echo $soybean_name; ?> />
                             <input type="hidden" name="price" value= <?php echo $soybean; ?> />
@@ -83,9 +85,11 @@
                     <div class="caption">
                         <h3 style="color: green"><?php echo $bread_name; ?></h3>
                         <p style="color: red">价格:<?php echo $bread; ?>￥</p>
+                           <p style="color: green;">还剩：<?php echo $bread_capacity; ?></p>
                         <p><?php echo $bread_pd; ?></p>
                         <form action="http://localhost/index.php/shop_cart/add/200">
-                            数量: <input type="number" name="qty" min="1" max="10" value="1"/>
+                            数量: <input type="number" name="qty" min="1" max=<?php echo $bread_capacity; ?> value="1"/>
+                              <input type="hidden" name="capacity" value=<?php echo $bread_capacity; ?> />
                             <input type="hidden" name="item_id" value="200" />
                             <input type="hidden" name="item_name" value= <?php echo $bread_name; ?> />
                             <input type="hidden" name="price" value= <?php echo $bread; ?> />
@@ -103,9 +107,11 @@
                     <div class="caption">
                         <h3 style="color: green"><?php echo $tomato_name; ?></h3>
                         <p style="color: red">价格:<?php echo $tomato_price; ?>￥</p>
+                        <p style="color: green;">还剩：<?php echo $tomato_capacity; ?></p>
                         <p><?php echo $tomato_pd; ?></p>
                         <form action="http://localhost/index.php/shop_cart/add/300">
-                            数量: <input type="number" name="qty" min="1" max="10" value="1"/>
+                            数量: <input type="number" name="qty" min="1" max=<?php echo $tomato_capacity; ?> value="1"/>
+                              <input type="hidden" name="capacity" value=<?php echo $tomato_capacity; ?> />
                             <input type="hidden" name="item_id" value="300" />
                             <input type="hidden" name="item_name" value= <?php echo $tomato_name; ?> />
                             <input type="hidden" name="price" value= <?php echo $tomato_price; ?> />
