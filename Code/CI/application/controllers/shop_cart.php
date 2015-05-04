@@ -26,20 +26,22 @@ class Shop_cart extends CI_Controller {
             'price' => $this->input->get('price'),
             'name' => $this->input->get('item_name')
         );
-        if ($this->session->userdata('logged_in')) {
-            // 已经登录了 ，加入购物车，是否去购物车结算页面
-            $rowid = $this->cart->insert($data); //插入购物车
-            //     echo $rowid;
+        $capacity = $this->input->get('capacity'); //获取商品的库存
+        if ($capacity >= $this->input->get('qty')) {
+            if ($this->session->userdata('logged_in')) {
+                // 已经登录了 ，加入购物车，是否去购物车结算页面
 
-            $cart = $this->cart->contents();
-            //  var_dump($cart);
-            //echo $cart["rowid"];
+                $rowid = $this->cart->insert($data); //插入购物车
 
-            $this->load->view('show/shop_cart_show');
-            //   foreach ($this->cart->contents() as $items)
-            //    echo  $items['rowid'];
+                $cart = $this->cart->contents();
+                $this->load->view('show/shop_cart_show');
+                //   foreach ($this->cart->contents() as $items)
+                //    echo  $items['rowid'];
+            } else {
+                $this->load->view('log/tell_info'); //提示用户还没有登录
+            }
         } else {
-            $this->load->view('log/tell_info'); //提示用户还没有登录
+            $this->load->view('log/capacity_empty');
         }
     }
 
@@ -129,9 +131,10 @@ class Shop_cart extends CI_Controller {
         $this->db->trans_complete(); //关闭事务
         $this->destroy(); //销毁购物车
     }
-    function destroy()
-    {
-         $this->cart->destroy(); //销毁购物车
-         $this->load->view('show/weixin_pay');
+
+    function destroy() {
+        $this->cart->destroy(); //销毁购物车
+        $this->load->view('show/weixin_pay');
     }
+
 }
