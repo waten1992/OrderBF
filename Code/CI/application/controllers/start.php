@@ -77,8 +77,8 @@ class Start extends CI_Controller {
             $this->session->set_userdata($newdata); //把用手机号码和登录状态添加到session中去
 
 
-
-            $this->index(); //默认返回主页
+            $this->load->view('log/register_success');
+           //$this->index(); //默认返回主页
         }
     }
 
