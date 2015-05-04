@@ -100,6 +100,7 @@ class Shop_cart extends CI_Controller {
         $i = 0; //下标获取购物车中的ID
         foreach ($this->cart->contents() as $items) {
             $item_id[$i] = $items['id'];
+            $item_qty[$i] = $items['qty'];
             $i++;
         }
         $this->db->trans_start(); //打开事务
@@ -110,7 +111,9 @@ class Shop_cart extends CI_Controller {
         foreach ($query_order_id->result() as $row) {  //搞定order_id 
             $order_id = $row->order_id;
         }
-
+        
+        $n = count($item_qty);
+        $set_zero = 0 ;
         foreach ($item_id as $value) {
             $query = $this->db->get_where('items', array('item_id' => $value));
             if ($query->num_rows() >= 1) {
@@ -120,11 +123,20 @@ class Shop_cart extends CI_Controller {
                         'user_id' => $user_id,
                         'item_name' => $row->item_name,
                         'item_id' => $row->item_id,
-                        'quantity' => $row->quantity,
+                        'quantity' => $item_qty[$set_zero],
                         'price' => $row->price
+                    );
+                   
+                    $capacity = $row->capacity - $item_qty[$set_zero];
+                    $items_id = $row->item_id;
+                    $update_capacity = array(
+                        'capacity' => $capacity
                     );
                 }
             }
+             $set_zero++;
+            $this->db->where('item_id', $items_id);
+            $this->db->update('items',$update_capacity);
             $this->db->insert('orders_slave', $data_slave); //插入从表
         }
 
