@@ -52,11 +52,15 @@
         <div class = "container">
             <div class="jumbotron" style="text-align: center; "> 
                 <h1 style="text-align: center;">Welcome to Orderbf</h1>
-                <p style="font-size: 40px; color: red; text-align: center; margin-top: 30px; "> Orderbf 专注为您设计早餐</p>
-                 <p style=" margin-top: 30px; "> 
+                <p style="font-size: 35px; color: red; text-align: center; margin-top: 20px; "> Orderbf 专注为您设计早餐</p>
+                 <p style=" margin-top: 20px; "> 
                         <h3>如需要帮助请联系我： </h3>
                         <h3>E-mail:waten1992@gmail.com</h3>
                         <h3>Cellphone:159 7537 9150</h3>
+                 </p>
+                 <p>  <a style="text-align: center; margin-top: 30px; " href = "http://localhost/index.php/start">
+                         <img src = "http://localhost/images/er_wei_ma.jpg" style="width: 344px; height: 344px;" >
+                        </a>
                  </p>
                 <p> <a class="btn btn-info btn-lg" href="http://localhost/index.php/start/about" role="button">详情</a></p>
             </div>
