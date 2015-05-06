@@ -66,6 +66,7 @@
                         <p style="color: red">价格:<?php echo $soybean; ?>￥</p>
                         <p style="color: green;">还剩：<?php echo $soybean_capacity; ?></p>
                         <p><?php echo $soybean_pd; ?></p>
+                        <p style="color: blue;"><?php echo $soybean_content; ?> </p>
                         <form action="http://localhost/index.php/shop_cart/add">
                             数量: <input type="number" name="qty" min="1" max=<?php echo $soybean_capacity; ?> value="1"/>
                             <input type="hidden" name="capacity" value=<?php echo $soybean_capacity; ?> />
@@ -87,6 +88,7 @@
                         <p style="color: red">价格:<?php echo $bread; ?>￥</p>
                            <p style="color: green;">还剩：<?php echo $bread_capacity; ?></p>
                         <p><?php echo $bread_pd; ?></p>
+                         <p style="color: blue;"><?php echo $bread_content; ?> </p>
                         <form action="http://localhost/index.php/shop_cart/add">
                             数量: <input type="number" name="qty" min="1" max=<?php echo $bread_capacity; ?> value="1"/>
                             <input type="hidden" name="capacity" value=<?php echo $bread_capacity; ?> />
@@ -109,6 +111,7 @@
                         <p style="color: red">价格:<?php echo $tomato_price; ?>￥</p>
                         <p style="color: green;">还剩：<?php echo $tomato_capacity; ?></p>
                         <p><?php echo $tomato_pd; ?></p>
+                         <p style="color: blue;"><?php echo $tomato_content; ?> </p>
                         <form action="http://localhost/index.php/shop_cart/add/300">
                             数量: <input type="number" name="qty" min="1" max=<?php echo $tomato_capacity; ?> value="1"/>
                               <input type="hidden" name="capacity" value=<?php echo $tomato_capacity; ?> />

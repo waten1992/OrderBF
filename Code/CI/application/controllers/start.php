@@ -19,6 +19,7 @@ class Start extends CI_Controller {
                 $soybean_pd = $row->pd_explain;
                 $soybean_capacity = $row->capacity;
                 $soybean_id = $row->item_id;
+                $soybean_content = $row->content;
             }
         }
         if ($query_bread->num_rows() >= 1) {
@@ -28,6 +29,7 @@ class Start extends CI_Controller {
                 $bread_pd = $row->pd_explain;
                 $bread_capacity = $row->capacity;
                 $bread_id = $row->item_id;
+                $bread_content = $row->content;
             }
         }
         if ($query_tomato->num_rows() >= 1) {
@@ -37,6 +39,7 @@ class Start extends CI_Controller {
                 $tomato_pd = $row->pd_explain;
                 $tomato_capacity = $row->capacity;
                 $tomato_id = $row->item_id;
+                $tomato_content = $row->content;
             }
         }
 
@@ -46,16 +49,19 @@ class Start extends CI_Controller {
             'soybean_pd' => $soybean_pd,
             'soybean_capacity' => $soybean_capacity,
             'soybean_id' => $soybean_id,
+            'soybean_content' => $soybean_content,
             'bread' => $var_bread,
             'bread_name' => $bread_name,
             'bread_pd' => $bread_pd,
             'bread_capacity' => $bread_capacity,
             'bread_id' => $bread_id,
+            'bread_content' => $bread_content,
             'tomato_price' => $tomato_price,
             'tomato_name' => $tomato_name,
             'tomato_pd' => $tomato_pd,
             'tomato_capacity' => $tomato_capacity,
             'tomato_id' => $tomato_id,
+            'tomato_content' => $tomato_content,
             'num' => $cart_num
         );
 
