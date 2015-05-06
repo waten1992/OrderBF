@@ -112,7 +112,7 @@ class Shop_cart extends CI_Controller {
             $order_id = $row->order_id;
         }
         
-        $n = count($item_qty);
+        $n = count($item_qty); //计算购物车中的商品的总类
         $set_zero = 0 ;
         foreach ($item_id as $value) {
             $query = $this->db->get_where('items', array('item_id' => $value));
@@ -134,7 +134,7 @@ class Shop_cart extends CI_Controller {
                     );
                 }
             }
-             $set_zero++;
+            $set_zero++; //增加下标
             $this->db->where('item_id', $items_id);
             $this->db->update('items',$update_capacity);
             $this->db->insert('orders_slave', $data_slave); //插入从表
