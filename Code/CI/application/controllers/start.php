@@ -18,6 +18,7 @@ class Start extends CI_Controller {
                 $soybean_name = $row->item_name;
                 $soybean_pd = $row->pd_explain;
                 $soybean_capacity = $row->capacity;
+                $soybean_id = $row->item_id;
             }
         }
         if ($query_bread->num_rows() >= 1) {
@@ -26,6 +27,7 @@ class Start extends CI_Controller {
                 $bread_name = $row->item_name;
                 $bread_pd = $row->pd_explain;
                 $bread_capacity = $row->capacity;
+                $bread_id = $row->item_id;
             }
         }
         if ($query_tomato->num_rows() >= 1) {
@@ -34,6 +36,7 @@ class Start extends CI_Controller {
                 $tomato_name = $row->item_name;
                 $tomato_pd = $row->pd_explain;
                 $tomato_capacity = $row->capacity;
+                $tomato_id = $row->item_id;
             }
         }
 
@@ -42,14 +45,17 @@ class Start extends CI_Controller {
             'soybean_name' => $soybean_name,
             'soybean_pd' => $soybean_pd,
             'soybean_capacity' => $soybean_capacity,
+            'soybean_id' => $soybean_id,
             'bread' => $var_bread,
             'bread_name' => $bread_name,
             'bread_pd' => $bread_pd,
             'bread_capacity' => $bread_capacity,
+            'bread_id' => $bread_id,
             'tomato_price' => $tomato_price,
             'tomato_name' => $tomato_name,
             'tomato_pd' => $tomato_pd,
-            'tomato_capacity' =>$tomato_capacity,
+            'tomato_capacity' => $tomato_capacity,
+            'tomato_id' => $tomato_id,
             'num' => $cart_num
         );
 
@@ -57,8 +63,7 @@ class Start extends CI_Controller {
             $this->load->view('log/home_logout', $data); //转到具有logout的主页
         } else {
             $this->load->view('home', $data);
-       // $this->load->view('new_test',$data); //测试用的
-            
+            // $this->load->view('new_test',$data); //测试用的
         }
     }
 
@@ -86,7 +91,7 @@ class Start extends CI_Controller {
 
 
             $this->load->view('log/register_success');
-           //$this->index(); //默认返回主页
+            //$this->index(); //默认返回主页
         }
     }
 
@@ -264,7 +269,7 @@ class Start extends CI_Controller {
             $name = $this->session->userdata('username');
             $query = $this->db->get_where('orders_master', array('user_id' => $name));
             $this->load->view('show/list_record');
-         
+
             if ($query->num_rows() >= 1) {
 
                 foreach ($query->result() as $row) {
@@ -274,7 +279,7 @@ class Start extends CI_Controller {
                     $order_id = $row->order_id;
                     $createtime = $row->createtime;
                     $status = $row->status;
-                    
+
                     $query_item_name = $this->db->get_where('orders_slave', array('user_id' => $user_id, 'order_id' => $order_id));
                     $i = 0;
                     $item_name = array();
@@ -293,7 +298,6 @@ class Start extends CI_Controller {
                         'item_name' => $item_name
                     );
                     $this->load->view('show/list_record_tables', $data);
-                   
                 }
             }
         } else {
@@ -345,7 +349,7 @@ class Start extends CI_Controller {
     function handle_change_address() {
         $this->form_validation->set_rules('address', '地址', 'trim|required');
         if ($this->form_validation->run() == FALSE) {
-           $this->load->view('log/change_address');
+            $this->load->view('log/change_address');
         } else {
             $address = $this->input->post('address');
             $data = array(

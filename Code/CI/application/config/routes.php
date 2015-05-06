@@ -56,6 +56,8 @@ $route['start/change_address'] = 'start/change_address';
 $route['shop_cart/handle_settled'] = 'shop_cart/handle_settled';
 $route['start/test'] = 'start/test';
 
+$route['comments/index'] = 'comments/index';
+
 $route['default_controller'] = 'start';
 
 $route['404_override'] = 'errors/page_missing';

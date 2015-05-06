@@ -75,28 +75,28 @@
                             <input type="submit"  method="get" class="btn btn-primary" role="button" value='加入购物车' />
                         </form>
                         <br>
-                        <p> <a href="#" class="btn btn-info" role="button">选我,我最好喝了啦</a></p>
+                       <p><a  href="http://localhost/index.php/comments/index/<?php echo $soybean_id; ?>" class="btn btn-info" role="button">看看评论吧～</a> </p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="http://localhost/images/pd/bread01.jpg" alt="这个是面包" style="width: 350px; height: 350px;">
+                    <img src="http://localhost/images/pd/bread01.jpg"  alt="这个是面包" style="width: 350px; height: 350px;">
                     <div class="caption">
                         <h3 style="color: green"><?php echo $bread_name; ?></h3>
                         <p style="color: red">价格:<?php echo $bread; ?>￥</p>
                            <p style="color: green;">还剩：<?php echo $bread_capacity; ?></p>
                         <p><?php echo $bread_pd; ?></p>
-                        <form action="http://localhost/index.php/shop_cart/add/200">
+                        <form action="http://localhost/index.php/shop_cart/add">
                             数量: <input type="number" name="qty" min="1" max=<?php echo $bread_capacity; ?> value="1"/>
-                              <input type="hidden" name="capacity" value=<?php echo $bread_capacity; ?> />
+                            <input type="hidden" name="capacity" value=<?php echo $bread_capacity; ?> />
                             <input type="hidden" name="item_id" value="200" />
                             <input type="hidden" name="item_name" value= <?php echo $bread_name; ?> />
                             <input type="hidden" name="price" value= <?php echo $bread; ?> />
                             <input type="submit"  method="get" class="btn btn-primary" role="button" value='加入购物车' />
                         </form>
                         <br/>
-                        <p><a href="#" class="btn btn-info" role="button">选我啦，我最好吃啦</a> </p>
+                        <p><a  href="http://localhost/index.php/comments/index/<?php echo $bread_id; ?>" class="btn btn-info" role="button">看看评论吧～</a> </p>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@
                             <input type="submit"  method="get" class="btn btn-primary" role="button" value='加入购物车' />
                         </form>
                         <br/>
-                        <p><a href="#" class="btn btn-info" role="button">选我啦，我最好吃啦</a> </p>
+                        <p><a  href="http://localhost/index.php/comments/index/<?php echo $tomato_id; ?>" class="btn btn-info" role="button">看看评论吧～</a> </p>
                     </div>
                 </div>
             </div>
