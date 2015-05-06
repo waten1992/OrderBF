@@ -18,5 +18,6 @@
     <body>
         <div class="page-header" style="text-align: center;">
             <h1><?php echo $item_name; ?> <small>顾客的评论</small></h1>
+            <h3 style="color: green;"><?php echo $item_content; ?></h3>
         </div>
     </body>

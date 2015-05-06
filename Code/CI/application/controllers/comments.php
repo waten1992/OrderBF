@@ -15,7 +15,8 @@ class Comments extends CI_Controller {
         if ($query_item_name->num_rows() >= 1) {
             foreach ($query_item_name->result() as $row) {
                 $name = array(
-                    'item_name' =>  $row->item_name
+                    'item_name' =>  $row->item_name,
+                    'item_content' => $row->content
                 );
             }
         }
