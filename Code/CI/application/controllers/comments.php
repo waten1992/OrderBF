@@ -15,12 +15,12 @@ class Comments extends CI_Controller {
         if ($query_item_name->num_rows() >= 1) {
             foreach ($query_item_name->result() as $row) {
                 $name = array(
-                    'item_name' =>  $row->item_name,
+                    'item_name' => $row->item_name,
                     'item_content' => $row->content
                 );
             }
         }
-        $this->load->view('show/comments_head',$name);
+        $this->load->view('show/comments_head', $name);
         $query = $this->db->get_where('comments', array('item_id' => $item_id));
         if ($query->num_rows() >= 1) {
             foreach ($query->result() as $row) {
@@ -35,6 +35,14 @@ class Comments extends CI_Controller {
                 $this->load->view('show/comments_details', $data);
             }
         }
+    }
+
+    function add_comment() {
+        $this->load->view('show/comment_page');
+    }
+    function hand_comment()
+    {
+        echo 'success';
     }
 
 }

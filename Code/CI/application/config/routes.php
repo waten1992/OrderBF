@@ -54,10 +54,13 @@ $route['start/change_info'] = 'start/change_info';
 $route['start/change_email'] = 'start/change_email';
 $route['start/change_address'] = 'start/change_address';
 $route['shop_cart/handle_settled'] = 'shop_cart/handle_settled';
+
+$route['shop_cart/show_orders_slave_details'] = 'shop_cart/show_orders_slave_details';
 $route['start/test'] = 'start/test';
 
 $route['comments/index'] = 'comments/index';
-
+$route['comments/add_comment'] = 'comments/add_comment';
+$route['comments/hand_comment'] = 'comments/hand_comment';
 $route['default_controller'] = 'start';
 
 $route['404_override'] = 'errors/page_missing';
