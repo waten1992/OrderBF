@@ -1,38 +1,37 @@
 <div class = "container">
-         <div class="row-fluid">
-            <div class="span12">
-                <table class="table" style="margin-left: 30px; margin-right: 30px; margin-top: 20px;">
-                    <tbody>
-                        <tr class="info" >
-                            <td  style="text-align: center;">
-                                <?php
-                             
-                                    echo $order_id ;
-                              
-                                ?>
-                            </td>
-                            <td style="text-align: center;">
-                               <?php
-                                foreach ($item_name as $value) {
-                                    echo $value . " ";
-                                }
-                                ?>
-                            </td>
-                            <td style="text-align: center;">
-                                <?php
-                               
-                                    echo $createtime;
-                          
-                                ?>
-                            </td>
-                          
-                            <td style="text-align: center;">
-                                <?php echo $amount; ?>
-                            </td>
-                        </tr>
+    <div class="page-header" style="text-align: center;">
+        <p> 
+            <button type = "button" class = " btn btn-info  "  > 订单号：  
+                <?php
+                echo $order_id;
+                ?>
+            </button>
+            <button type = "button" class = " btn btn-info  " > 商品： 
+                <?php
+                foreach ($item_name as $value) {
+                    echo $value . " ";
+                }
+                ?>
+            </button> 
+            <button type = "button" class = " btn btn-info  " > 时间： 
+                <?php
+                echo $createtime;
+                ?>
+            </button> 
+             <button type = "button" class = " btn btn-info  " > 地址： 
+                <?php
+                echo $address;
+                ?>
+            </button> 
+            <button type = "button" class = " btn btn-success  " > 总金额： 
+                <?php echo $amount; ?>
+            </button>
+            <a href="http://localhost/index.php/shop_cart/show_orders_slave_details/<?php echo $order_id; ?>">
+                                <button type = "button" class = " btn btn-primary " >详情</button>
+                            </a>
+        </p>
 
-                    </tbody>
-                </table>
-            </div>
-        </div>
+
+
     </div>
+</div>

@@ -285,6 +285,7 @@ class Start extends CI_Controller {
                     $order_id = $row->order_id;
                     $createtime = $row->createtime;
                     $status = $row->status;
+                    $address = $row->address;
 
                     $query_item_name = $this->db->get_where('orders_slave', array('user_id' => $user_id, 'order_id' => $order_id));
                     $i = 0;
@@ -301,7 +302,8 @@ class Start extends CI_Controller {
                         'order_id' => $order_id,
                         'createtime' => $createtime,
                         'status' => $status,
-                        'item_name' => $item_name
+                        'item_name' => $item_name,
+                        'address' => $address
                     );
                     $this->load->view('show/list_record_tables', $data);
                 }
