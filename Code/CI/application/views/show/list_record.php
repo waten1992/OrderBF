@@ -50,31 +50,12 @@
         </div>
 
 <div class = "container">
-         <div class="row-fluid">
-            <div class="span12">
-                <table class="table" style="margin-left: 30px; margin-right: 30px; margin-top: 20px; ">
-                    <tbody>
-                        <tr class="info" >
-                            <td  style="margin-left: 0px;">
-                                订单号
-                            </td>
-                            <td style="margin-left: 100px;">
-                            
-                                商品
-                            </td>
-                            <td style="text-align: center;">
-                                创建时间
-                            </td>
-                           
-                            <td style="text-align: center;">
-                              总计
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
+        <div class="page-header" >
+            <p >
+                <h2 style="color: red;">订单详情</h2>
+            </p>
         </div>
+  
     </div>
 
 
