@@ -111,9 +111,9 @@ class Shop_cart extends CI_Controller {
         foreach ($query_order_id->result() as $row) {  //搞定order_id 
             $order_id = $row->order_id;
         }
-        
+
         $n = count($item_qty); //计算购物车中的商品的总类
-        $set_zero = 0 ;
+        $set_zero = 0;
         foreach ($item_id as $value) {
             $query = $this->db->get_where('items', array('item_id' => $value));
             if ($query->num_rows() >= 1) {
@@ -126,7 +126,7 @@ class Shop_cart extends CI_Controller {
                         'quantity' => $item_qty[$set_zero],
                         'price' => $row->price
                     );
-                   
+
                     $capacity = $row->capacity - $item_qty[$set_zero];
                     $items_id = $row->item_id;
                     $update_capacity = array(
@@ -136,7 +136,7 @@ class Shop_cart extends CI_Controller {
             }
             $set_zero++; //增加下标
             $this->db->where('item_id', $items_id);
-            $this->db->update('items',$update_capacity);
+            $this->db->update('items', $update_capacity);
             $this->db->insert('orders_slave', $data_slave); //插入从表
         }
 
@@ -147,6 +147,46 @@ class Shop_cart extends CI_Controller {
     function destroy() {
         $this->cart->destroy(); //销毁购物车
         $this->load->view('show/weixin_pay');
+    }
+
+    function show_orders_slave_details() {
+        $user_id = $this->session->userdata('username'); //从session 获取username 即是手机号码
+
+        $query_orders_slave = $this->db->get_where('orders_slave', array('user_id' => $user_id));
+     //   $this->load->view('show/orders_slave_details_head');
+        $slave = array();
+        $i  = 1 ;
+        if ($query_orders_slave->num_rows() >= 1) {
+            foreach ($query_orders_slave->result() as $row) {
+               /** 
+                */
+                $data_slave = array(
+                    'order_id' => $row->order_id,
+                    'item_name' => $row->item_name,
+                    'quantity' => $row->quantity,
+                    'price' => $row->price,
+                    'is_comment' => $row->is_comment
+            
+                );
+                
+             /*   
+                    $order_id[$i] = $row->order_id;
+                    $item_name[$i] = $row->item_name;
+                    $quantity[$i] =  $row->quantity;
+                    $price[$i] = $row->price;
+                    $is_comment[$i] = $row->is_comment;
+                
+               */ 
+                
+                 $slave['waten'][$i] = $data_slave;
+                 $i++;
+               // $this->load->view('show/orders_slave_details',$data_slave);
+            }
+        }
+         $slave['num'] = $i  ;
+    //     var_dump($slave);
+     
+        $this->load->view('show/orders_slave_details_head',$slave);
     }
 
 }
