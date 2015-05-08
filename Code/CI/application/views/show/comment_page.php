@@ -18,15 +18,21 @@
     <body>
         <div class = "container">
             <div class="jumbotron" style="text-align: center; "> 
-                <h2>请输入你的评价</h2>
+                <p>
+                     <h3 style="color: red;">请输入你对<?php echo $item_name; ?>评价</h3>
+                </p>
+               
 
-                <form action="http://localhost/index.php/comments/hand_comment" method="get">
-                    <textarea name="MSG" cols=40 rows=8>
-                  
-                    </textarea>
+                <form action="http://localhost/index.php/comments/add_comment" method="post">
                     <p>
-                    <input type="submit"  method="get" class="btn btn-primary" role="button" value='添加评论' />
+                    <textarea  name ="body" cols=40 rows=8>
+                    </textarea>
                     </p>
+                    <input type="hidden" name="order_id" value=<?php echo $order_id; ?> />
+                    <input type="hidden" name="item_id" value=<?php echo $item_id; ?> />
+                    <input type="hidden" name="user_id" value=<?php echo $user_id; ?> />
+                    <input type="submit"  method="post" class="btn btn-primary" role="button" value='添加评论' />
+
                 </form>
 
 
