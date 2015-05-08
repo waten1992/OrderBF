@@ -58,7 +58,7 @@
                         <h3><?php echo "你的地址是：".$address ;?> <a class="btn btn-info btn-lg" href="http://localhost/index.php/start/change_address" role="button">修改地址</a></h3>
                         
                  </p>
-                <p> <a class="btn btn-info btn-lg" href="http://localhost/index.php/start/change_info" role="button">修改个人信息</a></p>
+               
             </div>
         </div>
 
