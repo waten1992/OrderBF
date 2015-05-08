@@ -33,8 +33,8 @@
                             <li > <a href ="http://localhost/index.php/start/contact">联系orderbf</a> </li>
                         </ul>
                         <div>
-                            <a href="http://localhost/index.php/start/login">
-                                <button type = "button" class = " btn btn-default navbar-btn navbar-right" >Sign in</button>
+                            <a href="http://localhost/index.php/start/logout">
+                                <button type = "button" class = " btn btn-default navbar-btn navbar-right" >Sign Out</button>
                             </a>
                         </div>
                         <div >
