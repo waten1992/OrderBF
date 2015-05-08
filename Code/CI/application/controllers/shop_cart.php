@@ -154,8 +154,7 @@ class Shop_cart extends CI_Controller {
             $order_id = $this->uri->segment(3); //获取订单号码
             $user_id = $this->session->userdata('username'); //从session 获取username 即是手机号码
             $query_orders_slave = $this->db->get_where('orders_slave', array('user_id' => $user_id , 'order_id' => $order_id));
-            $slave = array();
-            $i = 1;
+            $this->load->view('show/orders_slave_details_head');
             if ($query_orders_slave->num_rows() >= 1) {
                 foreach ($query_orders_slave->result() as $row) {
 
@@ -164,16 +163,14 @@ class Shop_cart extends CI_Controller {
                         'item_name' => $row->item_name,
                         'quantity' => $row->quantity,
                         'price' => $row->price,
-                        'is_comment' => $row->is_comment
+                        'is_comment' => $row->is_comment,
+                        'item_id' => $row->item_id
                     );
-                    $slave['waten'][$i] = $data_slave;
-                    $i++;
+                 $this->load->view('show/orders_slave_details', $data_slave);
                 }
             }
-            $slave['num'] = $i;
-
-            //  var_dump($slave);
-            $this->load->view('show/orders_slave_details_head', $slave);
+         
+          
         } else {
             $this->load->view('log/tell_info'); //提示用户还没有登录
         }

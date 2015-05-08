@@ -11,6 +11,9 @@ class Start extends CI_Controller {
         $query_soybean = $this->db->get_where('items', array('item_id' => "100")); //获取豆浆信息
         $query_bread = $this->db->get_where('items', array('item_id' => "200")); //获取面包信息
         $query_tomato = $this->db->get_where('items', array('item_id' => "300")); //获取番茄汁
+        $query_carrot = $this->db->get_where('items', array('item_id' => "301")); //获取胡萝卜汁
+        $query_corn = $this->db->get_where('items', array('item_id' => "400")); //获取玉米
+        $query_mix_juice = $this->db->get_where('items', array('item_id' => "500")); //获取混合果汁
         $cart_num = $this->cart->total_items();
         if ($query_soybean->num_rows() >= 1) {
             foreach ($query_soybean->result() as $row) {
@@ -43,6 +46,40 @@ class Start extends CI_Controller {
             }
         }
 
+        if ($query_carrot->num_rows() >= 1) {
+            foreach ($query_carrot->result() as $row) {
+                $carrot_price = $row->price;
+                $carrot_name = $row->item_name;
+                $carrot_pd = $row->pd_explain;
+                $carrot_capacity = $row->capacity;
+                $carrot_id = $row->item_id;
+                $carrot_content = $row->content;
+            }
+        }
+        
+         if ($query_corn->num_rows() >= 1) {
+            foreach ($query_corn->result() as $row) {
+                $corn_price = $row->price;
+                $corn_name = $row->item_name;
+                $corn_pd = $row->pd_explain;
+                $corn_capacity = $row->capacity;
+                $corn_id = $row->item_id;
+                $corn_content = $row->content;
+            }
+        }
+        
+        
+          if ($query_mix_juice->num_rows() >= 1) {
+            foreach ($query_mix_juice->result() as $row) {
+                $mix_juice_price = $row->price;
+                $mix_juice_name = $row->item_name;
+                $mix_juice_pd = $row->pd_explain;
+                $mix_juice_capacity = $row->capacity;
+                $mix_juice_id = $row->item_id;
+                $mix_juice_content = $row->content;
+            }
+        }
+            
         $data = array(
             'soybean' => $var_soybean,
             'soybean_name' => $soybean_name,
@@ -50,18 +87,43 @@ class Start extends CI_Controller {
             'soybean_capacity' => $soybean_capacity,
             'soybean_id' => $soybean_id,
             'soybean_content' => $soybean_content,
+            
             'bread' => $var_bread,
             'bread_name' => $bread_name,
             'bread_pd' => $bread_pd,
             'bread_capacity' => $bread_capacity,
             'bread_id' => $bread_id,
             'bread_content' => $bread_content,
+            
             'tomato_price' => $tomato_price,
             'tomato_name' => $tomato_name,
             'tomato_pd' => $tomato_pd,
             'tomato_capacity' => $tomato_capacity,
             'tomato_id' => $tomato_id,
             'tomato_content' => $tomato_content,
+            
+            'carrot_price' => $carrot_price,
+            'carrot_name' => $carrot_name,
+            'carrot_pd' => $carrot_pd,
+            'carrot_capacity' => $carrot_capacity,
+            'carrot_id' => $carrot_id,
+            'carrot_content' => $carrot_content,
+            
+             'corn_price' => $corn_price,
+            'corn_name' => $corn_name,
+            'corn_pd' => $corn_pd,
+            'corn_capacity' => $corn_capacity,
+            'corn_id' => $corn_id,
+            'corn_content' => $corn_content,
+            
+               'mix_juice_price' => $mix_juice_price,
+            'mix_juice_name' => $mix_juice_name,
+            'mix_juice_pd' => $mix_juice_pd,
+            'mix_juice_capacity' => $mix_juice_capacity,
+            'mix_juice_id' => $mix_juice_id,
+            'mix_juice_content' => $mix_juice_content,
+            
+            
             'num' => $cart_num
         );
 
