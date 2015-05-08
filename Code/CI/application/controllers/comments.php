@@ -80,12 +80,12 @@ class Comments extends CI_Controller {
                 );
             }
         } else {
-            echo 'did not have data ';
+            echo 'NO data';
         }
 
         if ($this->session->userdata('logged_in')) { //成功登录
             if ($is_comments) { //已经评论过了
-                echo 'you have been commented';
+                 $this->load->view('show/comment_already');
             } else {
                 $this->load->view('show/comment_page', $data);
             }
