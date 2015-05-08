@@ -51,49 +51,6 @@
         
         
         <div class="page-header" >
-            <table class="table  table-condensed" style="text-align: center;">
-                <tr class="success" >
-                    <td >
-                        订单号
-                    </td>
-                    <td >
-                        商品
-                    </td>
-                    <td >
-                        数量
-                    </td>
-                    <td >
-                        价格
-                    </td>
-                    <td >
-                        是否评价
-                    </td>
-                </tr>
-                <tbody>    
-                    <?php
-                    for ($i = 1; $i < $num; $i++) {
-                        echo '<tr class="info" >';
-                        $index = 1;
-                        foreach ($waten[$i] as $value) {
-                            echo "<td>";
-
-                            if ($value === '0')
-                                echo ' <a href="http://localhost/index.php/comments/add_comment">
-                                <button type = "button" class = " btn btn-link " >添加评论</button>
-                                     </a> ';
-                            else if ($value === '1' && ($index % 5 === 0))
-                                echo ' <a href="http://localhost/index.php/comments/add_comment">
-                                <button type = "button" class = " btn btn-success  " >是</button>
-                            </a> ';
-                            else
-                                echo $value;
-                            echo "</td>";
-                            $index++;
-                        }
-                        echo "<tr>";
-                    }
-                    ?>
-                </tbody>
-            </table>
+            <p><h2>订单明细：</h2></p>
         </div>
     </body>
