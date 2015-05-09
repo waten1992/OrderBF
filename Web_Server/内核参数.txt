@@ -1,5 +1,5 @@
 1-Nginx 的部署目录在： /usr/local/nginx
-2-修改内核参数在： /etc/sysctr.conf
+2-修改内核参数在： /etc/sysctl.conf
 	最大句柄数目： fs.file-max = 99999
 	net.ipv4.tcp_tw_max = 1 // TIME_WAIT 状态的socket重新用于TCP的连接
 	tcp_keepalive_time = 600 //当keepalive启用时，TCP发送keepalive的频率
