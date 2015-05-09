@@ -52,7 +52,7 @@
 <div class = "container">
         <div class="page-header" >
             <p >
-                <h2 style="color: red;">订单详情</h2>
+                <h2 style="color: red; text-align: center;">历史订单:</h2>
             </p>
         </div>
   
