@@ -10,54 +10,11 @@
 
         <!-- Bootstrap -->
         <link href="http://localhost/css/bootstrap.min.css" rel="stylesheet">
-        <script src="http://localhost/js/jquery-2.1.3"></script>
+        <link href="http://localhost/css/he.css" rel="stylesheet" type="text/css">
+        <script src="http://localhost/js/jquery-2.1.3.js"></script>
         <script src="http://localhost/js/bootstrap.min.js"></script>
         <script src="http://localhost/js/carousel.js"></script>
     </head>
-
-    <style type ="text/css">
-        .login-form {
-            position: relative;
-            padding: 24px 23px 20px;
-            background-color: #edeff1;
-            border-radius: 6px;
-        }
-        .login-form .control-group {
-            position: relative;
-            margin-bottom: 6px;
-        }
-        .login-form .login-field {
-            font-size: 17px;
-            text-indent: 3px;
-            border-color: transparent;
-        }
-        .login-form .login-field:focus {
-            border-color: #1abc9c;
-        }
-        .login-form .login-field:focus + .login-field-icon {
-            color: #1abc9c;
-        }
-        .login-form .login-field-icon {
-            position: absolute;
-            top: 3px;
-            right: 15px;
-            font-size: 16px;
-            color: #bfc9ca;
-            -webkit-transition: all .25s;
-            transition: all .25s;
-        }
-        .login-link {
-            display: block;
-            margin-top: 15px;
-            font-size: 13px;
-            color: #bfc9ca;
-            text-align: center;
-        }
-    </style>
-
-
-
-
 
     <body>
         <div class = "myheading">

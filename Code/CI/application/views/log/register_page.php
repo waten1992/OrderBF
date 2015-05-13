@@ -6,50 +6,17 @@
         <meta name="Keywords" content="orderbf,定早餐,毕业设计,独立博客" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-        <title>登录</title>
+        <title>注册</title>
 
         <!-- Bootstrap -->
         <link href="http://localhost/css/bootstrap.min.css" rel="stylesheet">
-        <script src="http://localhost/js/jquery-2.1.3"></script>
+        <link href="http://localhost/css/he.css" rel="stylesheet" type="text/css">
+        <script src="http://localhost/js/jquery-2.1.3.js"></script>
         <script src="http://localhost/js/bootstrap.min.js"></script>
         <script src="http://localhost/js/carousel.js"></script>
     </head>
 
-    <style type ="text/css">
-        .login-form {
-            position: relative;
-            padding: 24px 23px 20px;
-            background-color: #edeff1;
-            border-radius: 6px;
-        }
-        .login-form .control-group {
-            position: relative;
-            margin-bottom: 6px;
-        }
-        .login-form .login-field {
-            font-size: 17px;
-            text-indent: 3px;
-            border-color: transparent;
-        }
-        .login-form .login-field:focus {
-            border-color: #1abc9c;
-        }
-        .login-form .login-field:focus + .login-field-icon {
-            color: #1abc9c;
-        }
-
-        .login-link {
-            display: block;
-            margin-top: 15px;
-            font-size: 13px;
-            color: #bfc9ca;
-            text-align: center;
-        }
-    </style>
-
-
-
-
+  
 
     <body>
         <div class = "myheading">
@@ -110,28 +77,28 @@
                 </div>
 
                 <div class="control-group" >
-                    <?php echo form_error('passconf');  ?>
+                    <?php echo form_error('passconf'); ?>
                     <input type="password" name="passconf"  value="<?php echo set_value('passconf'); ?>" class="login-field"  placeholder="请再次输入密码" id="login-pass">
                     <label class="login-field-icon fui-lock-16" for="login-pass"></label>
                 </div>
-                
+
                 <div class="control-group" >
-                   <?php echo form_error('email'); ?> 
+                    <?php echo form_error('email'); ?> 
                     <input type="email" name="email"  value="<?php echo set_value('email'); ?>" class="login-field"  placeholder="请输入邮箱" id="login-pass">
                     <label class="login-field-icon fui-lock-16" for="login-pass"></label>
                 </div>
-                
-                 <div class="control-group" >
-                 <?php echo form_error('address'); ?> 
-                     <input type="text" name="address"  value="<?php echo set_value('address'); ?>" class="login-field"  placeholder="请输入地址" id="login-pass">
+
+                <div class="control-group" >
+                    <?php echo form_error('address'); ?> 
+                    <input type="text" name="address"  value="<?php echo set_value('address'); ?>" class="login-field"  placeholder="请输入地址" id="login-pass">
                     <label class="login-field-icon fui-lock-16" for="login-pass"></label>
                 </div>
-                
-                
-                
+
+
+
                 <input type="submit"  method="get" class="btn btn-primary btn-large" role="button" value='Login' />
 
-              
+
             </form>
         </div>
 

@@ -34,6 +34,8 @@ class Shop_cart extends CI_Controller {
                 $rowid = $this->cart->insert($data); //插入购物车
 
                 $cart = $this->cart->contents();
+         
+              
                 $this->load->view('show/shop_cart_show');
                 //   foreach ($this->cart->contents() as $items)
                 //    echo  $items['rowid'];
