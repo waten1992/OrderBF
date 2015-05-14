@@ -63,7 +63,7 @@ $route['comments/add_comment'] = 'comments/add_comment';
 $route['comments/hand_comment'] = 'comments/hand_comment';
 $route['default_controller'] = 'start';
 
-$route['404_override'] = 'errors/page_missing';
+$route['404_override'] = 'start/error';
 
 
 

@@ -433,37 +433,9 @@ class Start extends CI_Controller {
         }
     }
 
-    function test() {
-        /*
-          $query_soybean = $this->db->get_where('items', array('item_id' => "100")); //获取豆浆信息
-          $query_bread = $this->db->get_where('items', array('item_id' => "200")); //获取面包信息
-          $cart_num = $this->cart->total_items();
-          if ($query_soybean->num_rows() >= 1) {
-          foreach ($query_soybean->result() as $row)
-          $var_soybean = $row->price;
-          $soybean_name = $row->item_name;
-          $soybean_pd = $row->pd_explain;
-          }
-          if ($query_bread->num_rows() >= 1) {
-          foreach ($query_bread->result() as $row)
-          $var_bread = $row->price;
-          $bread_name = $row->item_name;
-          $bread_pd = $row->pd_explain;
-          }
-
-          $data = array(
-          'soybean' => $var_soybean,
-          'soybean_name' => $soybean_name,
-          'soybean_pd' => $soybean_pd,
-          'bread' => $var_bread,
-          'bread_name' => $bread_name,
-          'bread_pd' => $bread_pd,
-          'num' => $cart_num
-          );
-          $this->load->view('test', $data);
-         * 
-         */
-        $this->load->view('new_test');
+    function error() {
+    
+        $this->load->view('page_error');
     }
 
 }
