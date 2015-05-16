@@ -3,9 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/GithubCode/OrderBF/Code/CI/application/config/config.php</file>
             <file>file:/E:/GithubCode/OrderBF/Code/CI/application/controllers/start.php</file>
-            <file>file:/E:/GithubCode/OrderBF/Code/CI/index.php</file>
+            <file>file:/E:/GithubCode/OrderBF/Code/CI/application/views/log/home_logout.php</file>
             <file>file:/E:/GithubCode/OrderBF/Code/CI/application/views/new_test.php</file>
         </group>
     </open-files>

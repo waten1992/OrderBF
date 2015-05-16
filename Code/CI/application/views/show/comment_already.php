@@ -11,7 +11,7 @@
 
         <!-- Bootstrap -->
         <link href="http://localhost/css/bootstrap.min.css" rel="stylesheet">
-        <script src="http://localhost/js/jquery-2.1.3"></script>
+        <script src="http://localhost/js/jquery-2.1.3.js"></script>
         <script src="http://localhost/js/bootstrap.min.js"></script>
         <script src="http://localhost/js/carousel.js"></script>
     </head>

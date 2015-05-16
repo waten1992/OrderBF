@@ -6,7 +6,7 @@
         <meta name="Keywords" content="orderbf,定早餐,毕业设计,独立博客" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-        <title>Orderbf Home</title>
+        <title>页面找不到</title>
 
         <!-- Bootstrap -->
         <link href="http://localhost/css/bootstrap.min.css" rel="stylesheet">
