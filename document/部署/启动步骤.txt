@@ -1,0 +1,18 @@
+Orderbf 启动；
+
+1-启动php-fmp
+	/usr/local/php/sbin/php-fpm
+
+2-启动nginx
+	/usr/local/nginx/sbin/nginx
+
+3-启动mysql
+	service mysqld start 
+
+4-登录mysql 
+	mysql -uroot -p
+		输入密码：linux root 密码
+
+	show databases;
+	use orderbf;
+	show tables; 
